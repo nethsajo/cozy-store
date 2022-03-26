@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+  }
+}
+
+@layer components {
+  .btn__icon {
+    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-600 transition duration-200;
+  }
+
+  .badge {
+    @apply absolute top-0 right-0 rounded-full bg-green-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
+  }
+
+  .link {
+    @apply inline-block text-zinc-600 hover:text-green-500 transition duration-300 font-medium;
+  }
+}
