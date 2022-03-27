@@ -17,7 +17,7 @@
 
 @layer components {
   .btn__icon {
-    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-600 transition duration-200;
+    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-600 transition duration-300;
   }
 
   .badge {

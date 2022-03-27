@@ -17,19 +17,8 @@
       <nav class="nav h-full flex items-center justify-around">
         <div class="md:hidden flex-1">
           <button class="btn__icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 fill-current"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
+            <svg class="w-6 h-6 fill-current">
+              <use xlink:href="../src/icons/icons.svg#icon-menu"></use>
             </svg>
           </button>
           <div
@@ -59,31 +48,32 @@
         <div class="flex-none px-6">
           <a
             href="#"
-            class="text-2xl text-green-700 tracking-wide font-bold uppercase block"
+            class="text-lg sm:text-2xl text-green-700 tracking-wide font-bold uppercase block"
             >Cozy</a
           >
         </div>
         <!-- CART -->
         <div class="relative flex-1">
           <button class="btn__icon ml-auto">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-              />
+            <svg class="w-6 h-6 fill-current">
+              <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
           </button>
           <span class="badge">1</span>
         </div>
       </nav>
     </header>
+    <main class="main">
+      <section class="max-w-full mx-auto px-8 py-16 h-screen lg:max-w-6xl">
+        <div>
+          <h2
+            class="font-bold text-gray-800 text-2xl text-center tracking-wide"
+          >
+            Make your interior more minimalistic and modern
+          </h2>
+        </div>
+        <div></div>
+      </section>
+    </main>
   </body>
 </html>
