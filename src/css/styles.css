@@ -17,22 +17,34 @@
 
 @layer components {
   .btn {
-    @apply inline-block text-sm sm:text-base font-semibold uppercase py-3 px-6 tracking-wide rounded-md transition hover:-translate-y-1 duration-300;
+    @apply inline-block text-sm sm:text-base font-semibold uppercase py-3 px-8 tracking-wide rounded-md transition hover:-translate-y-1 duration-300;
   }
 
   .btn--primary {
-    @apply bg-green-600 text-white hover:bg-green-700;
+    @apply bg-amber-500 text-white hover:bg-amber-400 active:bg-amber-600;
   }
 
   .btn__icon {
-    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-600 transition duration-300;
+    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-amber-500 transition duration-300;
+  }
+
+  .btn__control {
+    @apply w-6 h-6 flex items-center justify-center text-neutral-600 rounded-full transition duration-300;
   }
 
   .badge {
-    @apply absolute top-0 right-0 rounded-full bg-green-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
+    @apply absolute top-0 right-0 rounded-full bg-amber-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
   }
 
   .link {
-    @apply inline-block text-zinc-600 hover:text-green-500 transition duration-300 font-medium;
+    @apply inline-block text-zinc-600 hover:text-amber-500 transition duration-300 font-medium;
+  }
+
+  .overlay {
+    @apply fixed top-0 left-0 w-full h-full bg-zinc-800/[0.20] transition delay-300 z-10;
+  }
+
+  .sidepanel {
+    @apply absolute w-full  h-full top-0 bg-white z-10;
   }
 }

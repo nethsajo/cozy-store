@@ -12,21 +12,17 @@
     <title>Cozy</title>
   </head>
   <body>
-    <header
-      class="max-w-full sm:max-w-2xl lg:max-w-7xl mx-auto h-24 px-8 xs:px-4"
-    >
+    <header class="sm:max-w-2xl lg:max-w-full mx-auto h-24">
       <!-- NAVIGATION -->
-      <nav class="nav h-full flex items-center justify-around">
+      <nav class="nav h-full flex items-center justify-around px-8 xs:px-4">
         <div class="lg:hidden flex-1">
           <button class="btn__icon">
             <svg class="w-6 h-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-menu"></use>
             </svg>
           </button>
-          <div
-            class="absolute inset-0 w-full h-screen bg-zinc-800/[0.20] -translate-x-full transition delay-300 z-10"
-          >
-            <div class="fixed w-9/12 h-full inset-0 bg-white">
+          <div class="overlay -translate-x-full">
+            <div class="sidepanel sm:w-[30%] left-0">
               <ul class="flex flex-col h-full space-y-8 pt-24">
                 <li class="px-8">
                   <a href="#" class="text-xl link">Home</a>
@@ -50,42 +46,109 @@
         <div class="flex-none px-6">
           <a
             href="#"
-            class="text-lg sm:text-2xl text-green-700 tracking-wide font-bold uppercase block"
+            class="text-lg sm:text-2xl text-amber-500 tracking-wide font-bold uppercase block"
             >Cozy</a
           >
         </div>
         <!-- CART -->
-        <div class="relative flex-1">
-          <button class="btn__icon ml-auto">
+        <div class="flex-1">
+          <button class="btn__icon ml-auto relative">
             <svg class="w-6 h-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
+            <span class="badge">1</span>
           </button>
-          <span class="badge">1</span>
+          <div class="overlay translate-x-full">
+            <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
+              <h3
+                class="text-neutral-600 text-xl text-center font-semibold tracking-wide mb-8"
+              >
+                Cart Summary
+              </h3>
+              <div class="cart__items">
+                <article class="border-b border-neutral-100 last:border-0">
+                  <a href="#" class="flex py-4 px-6 hover:bg-neutral-50">
+                    <figure
+                      class="flex-[0_0_64px] h-16 bg-amber-300 rounded-sm"
+                    >
+                      <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
+                    </figure>
+                    <div class="ml-4 overflow-hidden flex-1">
+                      <span
+                        class="block text-neutral-600 font-medium uppercase tracking-wide mb-2 text-ellipsis whitespace-nowrap max-w-xs overflow-hidden"
+                        >High-back bench
+                      </span>
+                      <div class="ml-auto flex items-center gap-4">
+                        <button
+                          class="btn__control bg-amber-200 hover:bg-amber-300"
+                        >
+                          <svg class="w-4 h-4 fill-current">
+                            <use
+                              xlink:href="../src/icons/icons.svg#icon-add"
+                            ></use>
+                          </svg>
+                        </button>
+                        <span class="text-base text-neutral-600 font-semibold"
+                          >1</span
+                        >
+                        <button
+                          class="btn__control bg-amber-200 hover:bg-amber-300"
+                        >
+                          <svg class="w-4 h-4 fill-current">
+                            <use
+                              xlink:href="../src/icons/icons.svg#icon-minus"
+                            ></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <button
+                      class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
+                    >
+                      <svg class="w-5 h-5 fill-current">
+                        <use
+                          xlink:href="../src/icons/icons.svg#icon-trash"
+                        ></use>
+                      </svg>
+                    </button>
+                  </a>
+                </article>
+              </div>
+            </aside>
+          </div>
         </div>
       </nav>
     </header>
     <main class="main">
-      <section class="h-full">
-        <div class="h-full max-w-full mx-auto px-8 pb-16 xs:px-4 sm:max-w-2xl">
+      <section class="h-full grid lg:grid-cols-2 2xl:grid-cols-5">
+        <div
+          class="h-full mx-auto px-8 pb-16 xs:px-4 sm:max-w-2xl lg:pt-16 lg:bg-amber-50 xl:max-w-full 2xl:col-span-2"
+        >
           <img
             src="../src/images/hero.jpg"
             alt="A photo of living room"
-            class="w-full h-64 xs:h-48 sm:h-72 rounded-lg object-cover object-center"
+            class="w-full h-64 xs:h-48 sm:h-72 rounded-lg object-cover object-center lg:hidden"
           />
           <h1
-            class="font-bold text-zinc-700 text-2xl xs:text-xl sm:text-4xl mt-6 mb-6"
+            class="font-bold text-neutral-700 text-2xl xs:text-lg sm:text-4xl my-8"
           >
             We design and build better furnitures, for a better life. Make your
             interior look modern.
           </h1>
-          <p class="text-zinc-600 text-base sm:text-lg mb-10">
-            Turn your room with Cozy into a lot more minimalist and modern with
-            ease and speed.
+          <p class="text-neutral-600 text-base mb-10 sm:text-lg">
+            We spend our days relentlessly perfecting the furniture. Turn your
+            room with Cozy into a lot more minimalist and modern with ease and
+            speed.
           </p>
           <a href="#" class="btn btn--primary">Shop now</a>
         </div>
-        <!-- <img src="../src/images/hero.jpg" alt="A photo of living room" /> -->
+        <div class="hidden lg:block relative 2xl:col-span-3">
+          <img
+            src="../src/images/hero.jpg"
+            alt="A photo of living room"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
       </section>
     </main>
   </body>
