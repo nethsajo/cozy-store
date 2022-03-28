@@ -16,6 +16,14 @@
 }
 
 @layer components {
+  .btn {
+    @apply inline-block text-sm sm:text-base font-semibold uppercase py-3 px-6 tracking-wide rounded-md transition hover:-translate-y-1 duration-300;
+  }
+
+  .btn--primary {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+
   .btn__icon {
     @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-600 transition duration-300;
   }

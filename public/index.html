@@ -12,10 +12,12 @@
     <title>Cozy</title>
   </head>
   <body>
-    <header class="max-w-full sm:max-w-5xl lg:max-w-7xl mx-auto h-24 px-8">
+    <header
+      class="max-w-full sm:max-w-2xl lg:max-w-7xl mx-auto h-24 px-8 xs:px-4"
+    >
       <!-- NAVIGATION -->
       <nav class="nav h-full flex items-center justify-around">
-        <div class="md:hidden flex-1">
+        <div class="lg:hidden flex-1">
           <button class="btn__icon">
             <svg class="w-6 h-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-menu"></use>
@@ -39,7 +41,7 @@
             </div>
           </div>
         </div>
-        <ul class="hidden md:flex flex-1 space-x-10">
+        <ul class="hidden lg:flex flex-1 space-x-10">
           <li><a href="#" class="link">Home</a></li>
           <li><a href="#" class="link">Products</a></li>
           <li><a href="#" class="link">About</a></li>
@@ -64,15 +66,26 @@
       </nav>
     </header>
     <main class="main">
-      <section class="max-w-full mx-auto px-8 py-16 h-screen lg:max-w-6xl">
-        <div>
-          <h2
-            class="font-bold text-gray-800 text-2xl text-center tracking-wide"
+      <section class="h-full">
+        <div class="h-full max-w-full mx-auto px-8 pb-16 xs:px-4 sm:max-w-2xl">
+          <img
+            src="../src/images/hero.jpg"
+            alt="A photo of living room"
+            class="w-full h-64 xs:h-48 sm:h-72 rounded-lg object-cover object-center"
+          />
+          <h1
+            class="font-bold text-zinc-700 text-2xl xs:text-xl sm:text-4xl mt-6 mb-6"
           >
-            Make your interior more minimalistic and modern
-          </h2>
+            We design and build better furnitures, for a better life. Make your
+            interior look modern.
+          </h1>
+          <p class="text-zinc-600 text-base sm:text-lg mb-10">
+            Turn your room with Cozy into a lot more minimalist and modern with
+            ease and speed.
+          </p>
+          <a href="#" class="btn btn--primary">Shop now</a>
         </div>
-        <div></div>
+        <!-- <img src="../src/images/hero.jpg" alt="A photo of living room" /> -->
       </section>
     </main>
   </body>
