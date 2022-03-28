@@ -67,50 +67,55 @@
               </h3>
               <div class="cart__items">
                 <article class="border-b border-neutral-100 last:border-0">
-                  <a href="#" class="flex py-4 px-6 hover:bg-neutral-50">
+                  <a
+                    href="#"
+                    class="flex xs:flex-col py-4 px-6 hover:bg-neutral-50"
+                  >
                     <figure
-                      class="flex-[0_0_64px] h-16 bg-amber-300 rounded-sm"
+                      class="flex-[0_0_64px] xs:flex-none h-16 xs:h-20 bg-amber-300 rounded-sm"
                     >
                       <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
                     </figure>
-                    <div class="ml-4 overflow-hidden flex-1">
+                    <div class="ml-4 xs:ml-0 xs:mt-3 overflow-hidden flex-1">
                       <span
                         class="block text-neutral-600 font-medium uppercase tracking-wide mb-2 text-ellipsis whitespace-nowrap max-w-xs overflow-hidden"
                         >High-back bench
                       </span>
-                      <div class="ml-auto flex items-center gap-4">
+                      <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                          <button
+                            class="btn__control bg-amber-200 hover:bg-amber-300"
+                          >
+                            <svg class="w-4 h-4 fill-current">
+                              <use
+                                xlink:href="../src/icons/icons.svg#icon-add"
+                              ></use>
+                            </svg>
+                          </button>
+                          <span class="text-base text-neutral-600 font-semibold"
+                            >1</span
+                          >
+                          <button
+                            class="btn__control bg-amber-200 hover:bg-amber-300"
+                          >
+                            <svg class="w-4 h-4 fill-current">
+                              <use
+                                xlink:href="../src/icons/icons.svg#icon-minus"
+                              ></use>
+                            </svg>
+                          </button>
+                        </div>
                         <button
-                          class="btn__control bg-amber-200 hover:bg-amber-300"
+                          class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
                         >
-                          <svg class="w-4 h-4 fill-current">
+                          <svg class="w-5 h-5 fill-current">
                             <use
-                              xlink:href="../src/icons/icons.svg#icon-add"
-                            ></use>
-                          </svg>
-                        </button>
-                        <span class="text-base text-neutral-600 font-semibold"
-                          >1</span
-                        >
-                        <button
-                          class="btn__control bg-amber-200 hover:bg-amber-300"
-                        >
-                          <svg class="w-4 h-4 fill-current">
-                            <use
-                              xlink:href="../src/icons/icons.svg#icon-minus"
+                              xlink:href="../src/icons/icons.svg#icon-trash"
                             ></use>
                           </svg>
                         </button>
                       </div>
                     </div>
-                    <button
-                      class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
-                    >
-                      <svg class="w-5 h-5 fill-current">
-                        <use
-                          xlink:href="../src/icons/icons.svg#icon-trash"
-                        ></use>
-                      </svg>
-                    </button>
                   </a>
                 </article>
               </div>
