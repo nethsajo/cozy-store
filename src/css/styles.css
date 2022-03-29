@@ -24,6 +24,10 @@
     @apply bg-amber-500 text-white hover:bg-amber-400 active:bg-amber-600;
   }
 
+  .btn__link {
+    @apply inline-block px-3 py-1 rounded-sm text-sm sm:text-base text-white uppercase font-medium bg-amber-500 tracking-wider hover:bg-amber-600 transition duration-300;
+  }
+
   .btn__icon {
     @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-amber-500 transition duration-300;
   }

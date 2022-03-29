@@ -12,6 +12,137 @@
     <title>Cozy</title>
   </head>
   <body>
-    <h1 class="text-3xl font-bold">Hello</h1>
+    <header
+      class="sm:max-w-2xl lg:max-w-full mx-auto h-20 lg:h-24 px-8 xs:px-4"
+    >
+      <!-- NAVIGATION -->
+      <nav class="nav h-full flex items-center justify-around">
+        <div class="lg:hidden flex-1">
+          <button class="btn__icon">
+            <svg class="w-6 h-6 fill-current">
+              <use xlink:href="../../src/icons/icons.svg#icon-menu"></use>
+            </svg>
+          </button>
+          <div class="overlay -translate-x-full">
+            <div class="sidepanel sm:w-[30%] left-0">
+              <ul class="flex flex-col h-full space-y-8 pt-24">
+                <li class="px-8">
+                  <a href="#" class="text-xl link">Home</a>
+                </li>
+                <li class="px-8">
+                  <a href="#" class="text-xl link">Products</a>
+                </li>
+                <li class="px-8">
+                  <a href="#" class="text-xl link">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="hidden lg:flex flex-1 space-x-10">
+          <li><a href="#" class="link">Home</a></li>
+          <li><a href="#" class="link">Products</a></li>
+          <li><a href="#" class="link">About</a></li>
+        </ul>
+        <!-- LOGO -->
+        <div class="flex-none px-6">
+          <a
+            href="#"
+            class="text-lg sm:text-2xl text-amber-500 tracking-wide font-bold uppercase block"
+            >Cozy</a
+          >
+        </div>
+        <!-- CART -->
+        <div class="flex-1">
+          <button class="btn__icon ml-auto relative">
+            <svg class="w-6 h-6 fill-current">
+              <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
+            </svg>
+            <span class="badge">1</span>
+          </button>
+          <div class="overlay translate-x-full">
+            <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
+              <h3
+                class="text-neutral-600 text-xl text-center font-semibold tracking-wide mb-8"
+              >
+                Cart Summary
+              </h3>
+              <div class="cart__items">
+                <article class="border-b border-neutral-100 last:border-0">
+                  <a
+                    href="#"
+                    class="flex xs:flex-col py-4 px-6 hover:bg-neutral-50"
+                  >
+                    <figure
+                      class="flex-[0_0_64px] xs:flex-none h-16 xs:h-20 bg-amber-300 rounded-sm"
+                    >
+                      <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
+                    </figure>
+                    <div class="ml-4 xs:ml-0 xs:mt-3 overflow-hidden flex-1">
+                      <span
+                        class="block text-neutral-600 font-medium uppercase tracking-wide mb-2 text-ellipsis whitespace-nowrap max-w-xs overflow-hidden"
+                        >High-back bench
+                      </span>
+                      <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                          <button
+                            class="btn__control bg-amber-200 hover:bg-amber-300"
+                          >
+                            <svg class="w-4 h-4 fill-current">
+                              <use
+                                xlink:href="../../src/icons/icons.svg#icon-add"
+                              ></use>
+                            </svg>
+                          </button>
+                          <span class="text-base text-neutral-600 font-semibold"
+                            >1</span
+                          >
+                          <button
+                            class="btn__control bg-amber-200 hover:bg-amber-300"
+                          >
+                            <svg class="w-4 h-4 fill-current">
+                              <use
+                                xlink:href="../../src/icons/icons.svg#icon-minus"
+                              ></use>
+                            </svg>
+                          </button>
+                        </div>
+                        <button
+                          class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
+                        >
+                          <svg class="w-5 h-5 fill-current">
+                            <use
+                              xlink:href="../../src/icons/icons.svg#icon-trash"
+                            ></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section>
+        <div
+          class="max-w-full mx-auto px-8 bg-amber-50 min-h-[15vh] flex items-center"
+        >
+          <nav class="flex" aria-label="Breadcrumb">
+            <ul class="flex items-center space-x-5">
+              <li>
+                <a href="#"> Poki </a>
+              </li>
+              <li>
+                <a href="#"> Poki </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
