@@ -36,6 +36,10 @@
     @apply absolute top-0 right-0 rounded-full bg-amber-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
   }
 
+  .btn__card {
+    @apply inline-block px-2 py-3 text-center text-xs font-medium uppercase tracking-wide transition duration-300;
+  }
+
   .link {
     @apply inline-block text-zinc-600 hover:text-amber-500 transition duration-300 font-medium;
   }
