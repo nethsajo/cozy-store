@@ -12,7 +12,9 @@
     <title>Cozy</title>
   </head>
   <body>
-    <header class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 px-8 xs:px-4">
+    <header
+      class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 px-8 xs:px-4 lg:px-12"
+    >
       <!-- NAVIGATION -->
       <nav class="nav h-full flex items-center justify-around">
         <div class="lg:hidden flex-1">
@@ -127,24 +129,27 @@
     <main class="main">
       <section class="bg-amber-50 w-full min-h-[15vh] flex items-center">
         <div
-          class="w-full max-w-lg mx-auto px-8 xs:px-4 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+          class="w-full max-w-lg mx-auto px-8 xs:px-4 lg:px-12 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
         >
           <nav class="flex" aria-label="Breadcrumb">
-            <ul class="flex items-center">
-              <li class="flex items-center before:content-['/']">
-                <a href="#"> Poki </a>
+            <ul class="flex flex-wrap items-center gap-2">
+              <li class="breadcrumb__item">
+                <a href="#" class="text-zinc-600 font-medium">Home</a>
               </li>
-              <li>
-                <a href="#"> Poki </a>
+              <li class="breadcrumb__item">
+                <a href="#" class="text-zinc-600 font-medium">Product</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="text-amber-500 font-semibold">The Laid Back</span>
               </li>
             </ul>
           </nav>
         </div>
       </section>
       <section
-        class="max-w-lg mx-auto px-8 py-24 xs:px-4 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+        class="max-w-lg mx-auto px-8 py-24 xs:px-4 lg:px-12 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
       >
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
           <figure class="w-full h-64 xs:h-48 sm:h-[31rem] relative">
             <img
               src="../../src/images/chair-1.jpg"
@@ -163,7 +168,7 @@
               >&#8369; 5,000.00</span
             >
             <p
-              class="text-base xs:text-sm xs:text-justify sm:text-lg text-neutral-600 leading-7 mb-10"
+              class="product__info xs:text-justify text-neutral-600 leading-7 mb-10"
             >
               Lorem ipsum dolor sit amet adipisicing elit. Consequatur
               doloremque nostrum ipsam nulla quis minima vero numquam quidem
@@ -175,29 +180,27 @@
               class="flex flex-col space-y-4 border-b border-neutral-300 pb-6 mb-8"
             >
               <div class="product__cols">
-                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                <span class="product__info text-gray-800 font-medium"
                   >SKU:</span
                 >
-                <span class="text-base xs:text-sm text-neutral-600"
+                <span class="product__info text-neutral-600"
                   >RecoM2MyHJGHLVi5l</span
                 >
               </div>
               <div class="product__cols">
-                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                <span class="product__info text-gray-800 font-medium"
                   >Brand:</span
                 >
-                <span class="text-base xs:text-sm text-neutral-600">Ikea</span>
+                <span class="product__info text-neutral-600">Ikea</span>
               </div>
               <div class="product__cols">
-                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                <span class="product__info text-gray-800 font-medium"
                   >Available:</span
                 >
-                <span class="text-base xs:text-sm text-neutral-600"
-                  >In Stock</span
-                >
+                <span class="product__info text-neutral-600">In Stock</span>
               </div>
               <div class="product__cols items-center mb-8">
-                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                <span class="product__info text-gray-800 font-medium"
                   >Colors:</span
                 >
                 <div class="flex items-center space-x-4">
