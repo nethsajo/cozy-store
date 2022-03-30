@@ -17,7 +17,7 @@
 
 @layer components {
   .btn {
-    @apply inline-block text-sm sm:text-base font-semibold uppercase py-3 px-8 tracking-wide rounded-md transition hover:-translate-y-1 duration-300;
+    @apply inline-flex text-sm sm:text-base font-semibold uppercase py-3 px-6 tracking-wide rounded-md transition  duration-300;
   }
 
   .btn--primary {
@@ -25,19 +25,23 @@
   }
 
   .btn__link {
-    @apply inline-block px-3 py-1 rounded-sm text-sm sm:text-base text-white uppercase font-medium bg-amber-500 tracking-wider hover:bg-amber-600 transition duration-300;
+    @apply inline-block text-sm sm:text-base text-amber-500 hover:text-amber-400 uppercase font-medium tracking-wider transition duration-300 underline underline-offset-8 hover:no-underline;
   }
 
   .btn__icon {
-    @apply h-10 w-10 flex items-center justify-center text-gray-600 hover:text-amber-500 transition duration-300;
+    @apply h-10 w-10 flex items-center text-gray-600 hover:text-amber-500 transition duration-300;
   }
 
   .btn__control {
-    @apply w-6 h-6 flex items-center justify-center text-neutral-600 rounded-full transition duration-300;
+    @apply flex items-center justify-center text-amber-500 rounded-full bg-amber-100 hover:bg-amber-200 transition duration-300;
   }
 
   .badge {
-    @apply absolute top-0 right-0 rounded-full bg-amber-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
+    @apply absolute rounded-full bg-amber-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
+  }
+
+  .badge__text {
+    @apply bg-amber-500 rounded-full items-center justify-center px-3 py-1;
   }
 
   .btn__card {
@@ -54,5 +58,9 @@
 
   .sidepanel {
     @apply absolute w-full  h-full top-0 bg-white z-10;
+  }
+
+  .product__cols {
+    @apply grid grid-cols-[110px_1fr] xs:grid-cols-[90px_1fr];
   }
 }

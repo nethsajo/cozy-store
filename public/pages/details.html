@@ -12,9 +12,7 @@
     <title>Cozy</title>
   </head>
   <body>
-    <header
-      class="sm:max-w-2xl lg:max-w-full mx-auto h-20 lg:h-24 px-8 xs:px-4"
-    >
+    <header class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 px-8 xs:px-4">
       <!-- NAVIGATION -->
       <nav class="nav h-full flex items-center justify-around">
         <div class="lg:hidden flex-1">
@@ -58,7 +56,7 @@
             <svg class="w-6 h-6 fill-current">
               <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge">1</span>
+            <span class="badge top-0 right-2">1</span>
           </button>
           <div class="overlay translate-x-full">
             <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
@@ -127,13 +125,13 @@
       </nav>
     </header>
     <main class="main">
-      <section>
+      <section class="bg-amber-50 w-full min-h-[15vh] flex items-center">
         <div
-          class="max-w-full mx-auto px-8 bg-amber-50 min-h-[15vh] flex items-center"
+          class="w-full max-w-lg mx-auto px-8 xs:px-4 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
         >
           <nav class="flex" aria-label="Breadcrumb">
-            <ul class="flex items-center space-x-5">
-              <li>
+            <ul class="flex items-center">
+              <li class="flex items-center before:content-['/']">
                 <a href="#"> Poki </a>
               </li>
               <li>
@@ -141,6 +139,107 @@
               </li>
             </ul>
           </nav>
+        </div>
+      </section>
+      <section
+        class="max-w-lg mx-auto px-8 py-24 xs:px-4 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <figure class="w-full h-64 xs:h-48 sm:h-[31rem] relative">
+            <img
+              src="../../src/images/chair-1.jpg"
+              alt="Chair"
+              class="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
+            />
+          </figure>
+          <div class="flex flex-col">
+            <h2
+              class="text-3xl xs:text-2xl sm:text-5xl text-gray-800 tracking-wide font-bold capitalize mb-6"
+            >
+              The Laid Back
+            </h2>
+            <span
+              class="inline-block text-xl sm:text-2xl text-amber-500 font-medium mb-6"
+              >&#8369; 5,000.00</span
+            >
+            <p
+              class="text-base xs:text-sm xs:text-justify sm:text-lg text-neutral-600 leading-7 mb-10"
+            >
+              Lorem ipsum dolor sit amet adipisicing elit. Consequatur
+              doloremque nostrum ipsam nulla quis minima vero numquam quidem
+              doloribus, voluptas obcaecati assumenda eligendi rerum officiis
+              ratione! Aut veniam ab architecto voluptates eius porro iusto
+              fugit!
+            </p>
+            <div
+              class="flex flex-col space-y-4 border-b border-neutral-300 pb-6 mb-8"
+            >
+              <div class="product__cols">
+                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                  >SKU:</span
+                >
+                <span class="text-base xs:text-sm text-neutral-600"
+                  >RecoM2MyHJGHLVi5l</span
+                >
+              </div>
+              <div class="product__cols">
+                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                  >Brand:</span
+                >
+                <span class="text-base xs:text-sm text-neutral-600">Ikea</span>
+              </div>
+              <div class="product__cols">
+                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                  >Available:</span
+                >
+                <span class="text-base xs:text-sm text-neutral-600"
+                  >In Stock</span
+                >
+              </div>
+              <div class="product__cols items-center mb-8">
+                <span class="text-base xs:text-sm text-gray-800 font-medium"
+                  >Colors:</span
+                >
+                <div class="flex items-center space-x-4">
+                  <button
+                    class="flex items-center justify-center w-6 h-6 bg-[#000] text-white rounded-full"
+                  >
+                    <svg class="w-4 h-4 fill-current">
+                      <use
+                        xlink:href="../../src/icons/icons.svg#icon-check"
+                      ></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap items-center justify-center sm:justify-start gap-8"
+            >
+              <div class="flex items-center">
+                <button type="button" class="btn__control w-8 h-8">
+                  <svg class="w-5 h-5 fill-current">
+                    <use
+                      xlink:href="../../src/icons/icons.svg#icon-minus"
+                    ></use>
+                  </svg>
+                </button>
+                <span class="text-neutral-600 text-xl font-semibold mx-4"
+                  >1</span
+                >
+                <button type="button" class="btn__control w-8 h-8">
+                  <svg class="w-5 h-5 fill-current">
+                    <use xlink:href="../../src/icons/icons.svg#icon-add"></use>
+                  </svg>
+                </button>
+              </div>
+              <button
+                class="text-sm sm:text-base text-white uppercase font-medium px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-400 tracking-wide transition duration-300"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </main>

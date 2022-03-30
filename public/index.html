@@ -12,9 +12,7 @@
     <title>Cozy</title>
   </head>
   <body>
-    <header
-      class="sm:max-w-2xl lg:max-w-full mx-auto h-20 lg:h-24 px-8 xs:px-4"
-    >
+    <header class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 px-8 xs:px-4">
       <!-- NAVIGATION -->
       <nav class="nav h-full flex items-center justify-around">
         <div class="lg:hidden flex-1">
@@ -58,7 +56,7 @@
             <svg class="w-6 h-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge">1</span>
+            <span class="badge top-0 right-2">1</span>
           </button>
           <div class="overlay translate-x-full">
             <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
@@ -85,9 +83,7 @@
                       </span>
                       <div class="flex justify-between items-center">
                         <div class="flex items-center gap-4">
-                          <button
-                            class="btn__control bg-amber-200 hover:bg-amber-300"
-                          >
+                          <button class="btn__control w-6 h-6">
                             <svg class="w-4 h-4 fill-current">
                               <use
                                 xlink:href="../src/icons/icons.svg#icon-add"
@@ -97,9 +93,7 @@
                           <span class="text-base text-neutral-600 font-semibold"
                             >1</span
                           >
-                          <button
-                            class="btn__control bg-amber-200 hover:bg-amber-300"
-                          >
+                          <button class="btn__control w-6 h-6">
                             <svg class="w-4 h-4 fill-current">
                               <use
                                 xlink:href="../src/icons/icons.svg#icon-minus"
@@ -129,7 +123,7 @@
     <main class="main">
       <section class="h-full grid lg:grid-cols-2 2xl:grid-cols-5 bg-amber-50">
         <div
-          class="h-full mx-auto px-8 py-16 xs:px-4 sm:max-w-2xl xl:max-w-full 2xl:col-span-2"
+          class="h-full max-w-lg mx-auto px-8 py-16 xs:px-4 sm:max-w-2xl xl:max-w-xl xl:mr-0 2xl:col-span-2"
         >
           <img
             src="../src/images/hero.jpg"
@@ -145,7 +139,7 @@
             Make your interior look modern and turn your room with Cozy into a
             lot more minimalist and modern with ease and speed.
           </p>
-          <a href="#" class="btn btn--primary">Shop now</a>
+          <a href="#" class="btn btn--primary hover:-translate-y-1">Shop now</a>
         </div>
         <div class="hidden lg:block relative 2xl:col-span-3">
           <img
@@ -155,6 +149,7 @@
           />
         </div>
       </section>
+      <!-- FEATURED -->
       <section class="pt-16 pb-24">
         <div
           class="max-w-lg mx-auto px-8 xs:px-4 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
@@ -165,13 +160,13 @@
             Featured Products
           </h2>
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 mb-16"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-12 lg:gap-8 mb-16"
           >
             <div
               class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-36 xl:h-full relative"
+                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
               >
                 <img
                   src="../src/images/chair-1.jpg"
@@ -180,18 +175,24 @@
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
-                <div class="px-6 py-5 xl:flex-1">
+                <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 xl:mb-3 lg:font-normal"
+                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
                   >
                     The laid back
                   </h4>
+                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                    <span
+                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      >Ikea</span
+                    >
+                  </div>
                   <p class="font-medium text-amber-500">&#8369; 5,000.00</p>
                 </div>
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
                     href="./pages/details.html"
-                    class="btn__card bg-amber-50 hover:bg-amber-100 text-neutral-700"
+                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
                     >View Details</a
                   >
                   <button
@@ -201,9 +202,7 @@
                   </button>
                 </div>
               </div>
-              <div
-                class="absolute top-3 right-3 xl:left-3 xl:right-auto bg-amber-500 rounded-full flex items-center px-3 py-1"
-              >
+              <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
                   class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
                   >Brand</span
@@ -214,7 +213,7 @@
               class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-36 xl:h-full relative"
+                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
               >
                 <img
                   src="../src/images/chair-1.jpg"
@@ -223,18 +222,24 @@
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
-                <div class="px-6 py-5 xl:flex-1">
+                <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 xl:mb-3 lg:font-normal"
+                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
                   >
-                    The laid back
+                    Entertainment Center
                   </h4>
+                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                    <span
+                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      >Ikea</span
+                    >
+                  </div>
                   <p class="font-medium text-amber-500">&#8369; 5,000.00</p>
                 </div>
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
-                    href="#"
-                    class="btn__card bg-amber-50 hover:bg-amber-100 text-neutral-700"
+                    href="./pages/details.html"
+                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
                     >View Details</a
                   >
                   <button
@@ -244,9 +249,7 @@
                   </button>
                 </div>
               </div>
-              <div
-                class="absolute top-3 right-3 xl:left-3 xl:right-auto bg-amber-500 rounded-full flex items-center px-3 py-1"
-              >
+              <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
                   class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
                   >Brand</span
@@ -257,7 +260,7 @@
               class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-36 xl:h-full relative"
+                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
               >
                 <img
                   src="../src/images/chair-1.jpg"
@@ -266,18 +269,24 @@
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
-                <div class="px-6 py-5 xl:flex-1">
+                <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 xl:mb-3 lg:font-normal"
+                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
                   >
-                    The laid back
+                    Entertainment Center
                   </h4>
+                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                    <span
+                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      >Ikea</span
+                    >
+                  </div>
                   <p class="font-medium text-amber-500">&#8369; 5,000.00</p>
                 </div>
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
-                    href="#"
-                    class="btn__card bg-amber-50 hover:bg-amber-100 text-neutral-700"
+                    href="./pages/details.html"
+                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
                     >View Details</a
                   >
                   <button
@@ -287,9 +296,7 @@
                   </button>
                 </div>
               </div>
-              <div
-                class="absolute top-3 right-3 xl:left-3 xl:right-auto bg-amber-500 rounded-full flex items-center px-3 py-1"
-              >
+              <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
                   class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
                   >Brand</span
@@ -298,7 +305,7 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <a href="#" class="btn__link">All products</a>
+            <a href="#" class="btn__link">All products &rarr;</a>
           </div>
         </div>
       </section>
