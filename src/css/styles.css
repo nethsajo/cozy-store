@@ -68,7 +68,7 @@
     @apply text-base xs:text-sm sm:text-lg;
   }
 
-  .breadcrumb__item {
-    @apply text-base xs:text-sm sm:text-xl lg:text-2xl flex items-center after:content-['/'] after:last:content-none after:mx-2;
+  .breadcrumb {
+    @apply text-base xs:text-sm sm:text-xl lg:text-2xl;
   }
 }

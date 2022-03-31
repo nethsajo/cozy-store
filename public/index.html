@@ -13,33 +13,33 @@
   </head>
   <body>
     <header
-      class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 lg:px-12 px-8 xs:px-4"
+      class="mx-auto h-20 max-w-full px-8 sm:max-w-2xl lg:h-24 lg:max-w-7xl lg:px-12 xl:max-w-full xs:px-4"
     >
       <!-- NAVIGATION -->
-      <nav class="nav h-full flex items-center justify-around">
-        <div class="lg:hidden flex-1">
+      <nav class="nav flex h-full items-center justify-around">
+        <div class="flex-1 lg:hidden">
           <button class="btn__icon">
-            <svg class="w-6 h-6 fill-current">
+            <svg class="h-6 w-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-menu"></use>
             </svg>
           </button>
           <div class="overlay -translate-x-full">
-            <div class="sidepanel sm:w-[30%] left-0">
-              <ul class="flex flex-col h-full space-y-8 pt-24">
+            <div class="sidepanel left-0 sm:w-[30%]">
+              <ul class="flex h-full flex-col space-y-8 pt-24">
                 <li class="px-8">
-                  <a href="#" class="text-xl link">Home</a>
+                  <a href="#" class="link text-xl">Home</a>
                 </li>
                 <li class="px-8">
-                  <a href="#" class="text-xl link">Products</a>
+                  <a href="#" class="link text-xl">Products</a>
                 </li>
                 <li class="px-8">
-                  <a href="#" class="text-xl link">About</a>
+                  <a href="#" class="link text-xl">About</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <ul class="hidden lg:flex flex-1 space-x-10">
+        <ul class="hidden flex-1 space-x-10 lg:flex">
           <li><a href="#" class="link">Home</a></li>
           <li><a href="#" class="link">Products</a></li>
           <li><a href="#" class="link">About</a></li>
@@ -48,22 +48,22 @@
         <div class="flex-none px-6">
           <a
             href="#"
-            class="text-lg sm:text-2xl text-amber-500 tracking-wide font-bold uppercase block"
+            class="block text-lg font-bold uppercase tracking-wide text-amber-500 sm:text-2xl"
             >Cozy</a
           >
         </div>
         <!-- CART -->
         <div class="flex-1">
-          <button class="btn__icon ml-auto relative">
-            <svg class="w-6 h-6 fill-current">
+          <button class="btn__icon relative ml-auto justify-end">
+            <svg class="h-6 w-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge top-0 right-2">1</span>
+            <span class="badge top-0 -right-2">1</span>
           </button>
           <div class="overlay translate-x-full">
-            <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
+            <aside class="sidepanel right-0 pt-24 sm:w-2/4 lg:w-[30%]">
               <h3
-                class="text-neutral-600 text-xl text-center font-semibold tracking-wide mb-8"
+                class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600"
               >
                 Cart Summary
               </h3>
@@ -71,32 +71,32 @@
                 <article class="border-b border-neutral-100 last:border-0">
                   <a
                     href="#"
-                    class="flex xs:flex-col py-4 px-6 hover:bg-neutral-50"
+                    class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col"
                   >
                     <figure
-                      class="flex-[0_0_64px] xs:flex-none h-16 xs:h-20 bg-amber-300 rounded-sm"
+                      class="h-16 flex-[0_0_64px] rounded-sm bg-amber-300 xs:h-20 xs:flex-none"
                     >
                       <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
                     </figure>
-                    <div class="ml-4 xs:ml-0 xs:mt-3 overflow-hidden flex-1">
+                    <div class="ml-4 flex-1 overflow-hidden xs:ml-0 xs:mt-3">
                       <span
-                        class="block text-neutral-600 font-medium uppercase tracking-wide mb-2 text-ellipsis whitespace-nowrap max-w-xs overflow-hidden"
+                        class="mb-2 block max-w-xs overflow-hidden text-ellipsis whitespace-nowrap font-medium uppercase tracking-wide text-neutral-600"
                         >High-back bench
                       </span>
-                      <div class="flex justify-between items-center">
+                      <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
-                          <button class="btn__control w-6 h-6">
-                            <svg class="w-4 h-4 fill-current">
+                          <button class="btn__control h-6 w-6">
+                            <svg class="h-4 w-4 fill-current">
                               <use
                                 xlink:href="../src/icons/icons.svg#icon-add"
                               ></use>
                             </svg>
                           </button>
-                          <span class="text-base text-neutral-600 font-semibold"
+                          <span class="text-base font-semibold text-neutral-600"
                             >1</span
                           >
-                          <button class="btn__control w-6 h-6">
-                            <svg class="w-4 h-4 fill-current">
+                          <button class="btn__control h-6 w-6">
+                            <svg class="h-4 w-4 fill-current">
                               <use
                                 xlink:href="../src/icons/icons.svg#icon-minus"
                               ></use>
@@ -104,9 +104,9 @@
                           </button>
                         </div>
                         <button
-                          class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
+                          class="ml-auto self-center text-red-500 transition duration-300 hover:text-red-600"
                         >
-                          <svg class="w-5 h-5 fill-current">
+                          <svg class="h-5 w-5 fill-current">
                             <use
                               xlink:href="../src/icons/icons.svg#icon-trash"
                             ></use>
@@ -123,69 +123,69 @@
       </nav>
     </header>
     <main class="main">
-      <section class="h-full grid lg:grid-cols-2 2xl:grid-cols-5 bg-amber-50">
+      <section class="grid h-full bg-amber-50 lg:grid-cols-2 2xl:grid-cols-5">
         <div
-          class="h-full max-w-lg mx-auto px-8 lg:px-12 py-16 xs:px-4 sm:max-w-2xl lg:mr-0 xl:max-w-xl xl:mr-0 2xl:col-span-2"
+          class="mx-auto h-full max-w-lg px-8 py-16 sm:max-w-2xl lg:px-12 xl:max-w-xl 2xl:col-span-2 xs:px-4"
         >
           <img
             src="../src/images/hero.jpg"
             alt="A photo of living room"
-            class="w-full h-64 xs:h-48 sm:h-72 rounded-lg object-cover object-center lg:hidden"
+            class="h-64 w-full rounded-lg object-cover object-center sm:h-72 lg:hidden xs:h-48"
           />
           <h1
-            class="font-bold text-neutral-700 text-2xl xs:text-lg sm:text-4xl my-8 lg:mt-0"
+            class="my-8 text-2xl font-bold text-neutral-700 sm:text-4xl lg:mt-0 xs:text-lg"
           >
             We design and build better furnitures, for a better life.
           </h1>
-          <p class="text-neutral-600 text-base mb-10 sm:text-lg lg:max-w-xl">
+          <p class="mb-10 text-base text-neutral-600 sm:text-lg lg:max-w-xl">
             Make your interior look modern and turn your room with Cozy into a
             lot more minimalist and modern with ease and speed.
           </p>
           <a href="#" class="btn btn--primary hover:-translate-y-1">Shop now</a>
         </div>
-        <div class="hidden lg:block relative 2xl:col-span-3">
+        <div class="relative hidden lg:block 2xl:col-span-3">
           <img
             src="../src/images/hero.jpg"
             alt="A photo of living room"
-            class="absolute inset-0 w-full h-full object-cover object-center"
+            class="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
       </section>
       <!-- FEATURED -->
       <section class="pt-16 pb-24">
         <div
-          class="max-w-lg mx-auto px-8 xs:px-4 lg:px-12 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+          class="mx-auto max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4"
         >
           <h2
-            class="text-3xl xs:text-xl sm:text-4xl font-bold text-neutral-600 text-center mb-12"
+            class="mb-12 text-center text-3xl font-bold text-neutral-600 sm:text-4xl xs:text-xl"
           >
             Featured Products
           </h2>
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-12 lg:gap-8 mb-16"
+            class="mb-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-2"
           >
             <div
-              class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
+                class="relative h-52 w-full overflow-hidden xl:h-full xl:w-52"
               >
                 <img
                   src="../src/images/chair-1.jpg"
                   alt="Chair 1"
-                  class="absolute inset-0 w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
                 <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
+                    class="mb-2 text-lg font-bold uppercase text-neutral-700 lg:font-normal"
                   >
                     The laid back
                   </h4>
-                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                  <div class="badge__text hidden w-16 lg:mb-4 lg:flex">
                     <span
-                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                       >Ikea</span
                     >
                   </div>
@@ -194,11 +194,11 @@
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
                     href="./pages/details.html"
-                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
+                    class="btn__card bg-amber-100 text-amber-600 hover:bg-amber-200"
                     >View Details</a
                   >
                   <button
-                    class="btn__card bg-amber-500 hover:bg-amber-400 text-white"
+                    class="btn__card bg-amber-500 text-white hover:bg-amber-400"
                   >
                     Add to Cart
                   </button>
@@ -206,33 +206,33 @@
               </div>
               <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
-                  class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                  class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                   >Brand</span
                 >
               </div>
             </div>
             <div
-              class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
+                class="relative h-52 w-full overflow-hidden xl:h-full xl:w-52"
               >
                 <img
                   src="../src/images/chair-1.jpg"
                   alt="Chair 1"
-                  class="absolute inset-0 w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
                 <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
+                    class="mb-2 text-lg font-bold uppercase text-neutral-700 lg:font-normal"
                   >
                     Entertainment Center
                   </h4>
-                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                  <div class="badge__text hidden w-16 lg:mb-4 lg:flex">
                     <span
-                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                       >Ikea</span
                     >
                   </div>
@@ -241,11 +241,11 @@
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
                     href="./pages/details.html"
-                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
+                    class="btn__card bg-amber-100 text-amber-600 hover:bg-amber-200"
                     >View Details</a
                   >
                   <button
-                    class="btn__card bg-amber-500 hover:bg-amber-400 text-white"
+                    class="btn__card bg-amber-500 text-white hover:bg-amber-400"
                   >
                     Add to Cart
                   </button>
@@ -253,33 +253,33 @@
               </div>
               <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
-                  class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                  class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                   >Brand</span
                 >
               </div>
             </div>
             <div
-              class="relative flex flex-col rounded-lg overflow-hidden shadow-customSm hover:shadow-lg transition duration-300 xl:flex-row"
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg xl:flex-row"
             >
               <figure
-                class="overflow-hidden w-full h-52 xl:w-52 xl:h-full relative"
+                class="relative h-52 w-full overflow-hidden xl:h-full xl:w-52"
               >
                 <img
                   src="../src/images/chair-1.jpg"
                   alt="Chair 1"
-                  class="absolute inset-0 w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
                 />
               </figure>
               <div class="flex flex-col xl:flex-1">
                 <div class="px-6 py-8 xl:flex-1">
                   <h4
-                    class="text-lg font-bold uppercase text-neutral-700 mb-2 lg:font-normal"
+                    class="mb-2 text-lg font-bold uppercase text-neutral-700 lg:font-normal"
                   >
                     Entertainment Center
                   </h4>
-                  <div class="badge__text w-16 lg:mb-4 hidden lg:flex">
+                  <div class="badge__text hidden w-16 lg:mb-4 lg:flex">
                     <span
-                      class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                      class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                       >Ikea</span
                     >
                   </div>
@@ -288,11 +288,11 @@
                 <div class="grid grid-cols-2 xl:justify-self-end">
                   <a
                     href="./pages/details.html"
-                    class="btn__card bg-amber-100 hover:bg-amber-200 text-amber-600"
+                    class="btn__card bg-amber-100 text-amber-600 hover:bg-amber-200"
                     >View Details</a
                   >
                   <button
-                    class="btn__card bg-amber-500 hover:bg-amber-400 text-white"
+                    class="btn__card bg-amber-500 text-white hover:bg-amber-400"
                   >
                     Add to Cart
                   </button>
@@ -300,7 +300,7 @@
               </div>
               <div class="badge__text absolute top-3 right-3 flex lg:hidden">
                 <span
-                  class="uppercase text-xs text-white font-semibold tracking-wider leading-none"
+                  class="text-xs font-semibold uppercase leading-none tracking-wider text-white"
                   >Brand</span
                 >
               </div>

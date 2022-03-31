@@ -13,33 +13,33 @@
   </head>
   <body>
     <header
-      class="sm:max-w-2xl lg:max-w-7xl mx-auto h-20 lg:h-24 px-8 xs:px-4 lg:px-12"
+      class="mx-auto h-20 max-w-full px-8 sm:max-w-2xl lg:h-24 lg:max-w-7xl lg:px-12 xl:max-w-full xs:px-4"
     >
       <!-- NAVIGATION -->
-      <nav class="nav h-full flex items-center justify-around">
-        <div class="lg:hidden flex-1">
+      <nav class="nav flex h-full items-center justify-around">
+        <div class="flex-1 lg:hidden">
           <button class="btn__icon">
-            <svg class="w-6 h-6 fill-current">
+            <svg class="h-6 w-6 fill-current">
               <use xlink:href="../../src/icons/icons.svg#icon-menu"></use>
             </svg>
           </button>
           <div class="overlay -translate-x-full">
-            <div class="sidepanel sm:w-[30%] left-0">
-              <ul class="flex flex-col h-full space-y-8 pt-24">
+            <div class="sidepanel left-0 sm:w-[30%]">
+              <ul class="flex h-full flex-col space-y-8 pt-24">
                 <li class="px-8">
-                  <a href="#" class="text-xl link">Home</a>
+                  <a href="#" class="link text-xl">Home</a>
                 </li>
                 <li class="px-8">
-                  <a href="#" class="text-xl link">Products</a>
+                  <a href="#" class="link text-xl">Products</a>
                 </li>
                 <li class="px-8">
-                  <a href="#" class="text-xl link">About</a>
+                  <a href="#" class="link text-xl">About</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <ul class="hidden lg:flex flex-1 space-x-10">
+        <ul class="hidden flex-1 space-x-10 lg:flex">
           <li><a href="#" class="link">Home</a></li>
           <li><a href="#" class="link">Products</a></li>
           <li><a href="#" class="link">About</a></li>
@@ -48,22 +48,22 @@
         <div class="flex-none px-6">
           <a
             href="#"
-            class="text-lg sm:text-2xl text-amber-500 tracking-wide font-bold uppercase block"
+            class="block text-lg font-bold uppercase tracking-wide text-amber-500 sm:text-2xl"
             >Cozy</a
           >
         </div>
         <!-- CART -->
         <div class="flex-1">
-          <button class="btn__icon ml-auto relative">
-            <svg class="w-6 h-6 fill-current">
+          <button class="btn__icon relative ml-auto justify-end">
+            <svg class="h-6 w-6 fill-current">
               <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge top-0 right-2">1</span>
+            <span class="badge top-0 -right-2">1</span>
           </button>
           <div class="overlay translate-x-full">
-            <aside class="sidepanel sm:w-2/4 lg:w-[30%] right-0 pt-24">
+            <aside class="sidepanel right-0 pt-24 sm:w-2/4 lg:w-[30%]">
               <h3
-                class="text-neutral-600 text-xl text-center font-semibold tracking-wide mb-8"
+                class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600"
               >
                 Cart Summary
               </h3>
@@ -71,36 +71,36 @@
                 <article class="border-b border-neutral-100 last:border-0">
                   <a
                     href="#"
-                    class="flex xs:flex-col py-4 px-6 hover:bg-neutral-50"
+                    class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col"
                   >
                     <figure
-                      class="flex-[0_0_64px] xs:flex-none h-16 xs:h-20 bg-amber-300 rounded-sm"
+                      class="h-16 flex-[0_0_64px] rounded-sm bg-amber-300 xs:h-20 xs:flex-none"
                     >
                       <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
                     </figure>
-                    <div class="ml-4 xs:ml-0 xs:mt-3 overflow-hidden flex-1">
+                    <div class="ml-4 flex-1 overflow-hidden xs:ml-0 xs:mt-3">
                       <span
-                        class="block text-neutral-600 font-medium uppercase tracking-wide mb-2 text-ellipsis whitespace-nowrap max-w-xs overflow-hidden"
+                        class="mb-2 block max-w-xs overflow-hidden text-ellipsis whitespace-nowrap font-medium uppercase tracking-wide text-neutral-600"
                         >High-back bench
                       </span>
-                      <div class="flex justify-between items-center">
+                      <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
                           <button
                             class="btn__control bg-amber-200 hover:bg-amber-300"
                           >
-                            <svg class="w-4 h-4 fill-current">
+                            <svg class="h-4 w-4 fill-current">
                               <use
                                 xlink:href="../../src/icons/icons.svg#icon-add"
                               ></use>
                             </svg>
                           </button>
-                          <span class="text-base text-neutral-600 font-semibold"
+                          <span class="text-base font-semibold text-neutral-600"
                             >1</span
                           >
                           <button
                             class="btn__control bg-amber-200 hover:bg-amber-300"
                           >
-                            <svg class="w-4 h-4 fill-current">
+                            <svg class="h-4 w-4 fill-current">
                               <use
                                 xlink:href="../../src/icons/icons.svg#icon-minus"
                               ></use>
@@ -108,9 +108,9 @@
                           </button>
                         </div>
                         <button
-                          class="text-red-500 hover:text-red-600 transition duration-300 ml-auto self-center"
+                          class="ml-auto self-center text-red-500 transition duration-300 hover:text-red-600"
                         >
-                          <svg class="w-5 h-5 fill-current">
+                          <svg class="h-5 w-5 fill-current">
                             <use
                               xlink:href="../../src/icons/icons.svg#icon-trash"
                             ></use>
@@ -127,48 +127,52 @@
       </nav>
     </header>
     <main class="main">
-      <section class="bg-amber-50 w-full min-h-[15vh] flex items-center">
+      <section
+        class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]"
+      >
         <div
-          class="w-full max-w-lg mx-auto px-8 xs:px-4 lg:px-12 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+          class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4"
         >
           <nav class="flex" aria-label="Breadcrumb">
-            <ul class="flex flex-wrap items-center gap-2">
-              <li class="breadcrumb__item">
-                <a href="#" class="text-zinc-600 font-medium">Home</a>
+            <ul
+              class="flex flex-wrap items-center slash:mx-2 slash:content-['/\00a0']"
+            >
+              <li class="breadcrumb flex items-center">
+                <a href="#" class="font-medium text-zinc-600">Home</a>
               </li>
-              <li class="breadcrumb__item">
-                <a href="#" class="text-zinc-600 font-medium">Product</a>
+              <li class="breadcrumb flex items-center">
+                <a href="#" class="font-medium text-zinc-600">Product</a>
               </li>
-              <li class="breadcrumb__item">
-                <span class="text-amber-500 font-semibold">The Laid Back</span>
+              <li class="breadcrumb flex items-center">
+                <span class="font-semibold text-amber-500">The Laid Back</span>
               </li>
             </ul>
           </nav>
         </div>
       </section>
       <section
-        class="max-w-lg mx-auto px-8 py-24 xs:px-4 lg:px-12 sm:max-w-2xl lg:max-w-7xl 2xl:max-w-screen-2xl"
+        class="mx-auto max-w-lg px-8 py-24 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4 xs:pt-12"
       >
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
-          <figure class="w-full h-64 xs:h-48 sm:h-[31rem] relative">
+        <div class="grid grid-cols-1 gap-12 xl:grid-cols-2">
+          <figure class="relative h-64 w-full sm:h-[31rem] xs:h-48">
             <img
               src="../../src/images/chair-1.jpg"
               alt="Chair"
-              class="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
+              class="absolute inset-0 h-full w-full rounded-lg object-cover object-center"
             />
           </figure>
           <div class="flex flex-col">
             <h2
-              class="text-3xl xs:text-2xl sm:text-5xl text-gray-800 tracking-wide font-bold capitalize mb-6"
+              class="mb-6 text-3xl font-bold capitalize tracking-wide text-gray-800 sm:text-5xl xs:text-2xl"
             >
               The Laid Back
             </h2>
             <span
-              class="inline-block text-xl sm:text-2xl text-amber-500 font-medium mb-6"
+              class="mb-6 inline-block text-xl font-medium text-amber-500 sm:text-2xl"
               >&#8369; 5,000.00</span
             >
             <p
-              class="product__info xs:text-justify text-neutral-600 leading-7 mb-10"
+              class="product__info mb-10 leading-7 text-neutral-600 xs:text-justify"
             >
               Lorem ipsum dolor sit amet adipisicing elit. Consequatur
               doloremque nostrum ipsam nulla quis minima vero numquam quidem
@@ -177,10 +181,10 @@
               fugit!
             </p>
             <div
-              class="flex flex-col space-y-4 border-b border-neutral-300 pb-6 mb-8"
+              class="mb-8 flex flex-col space-y-4 border-b border-neutral-300 pb-6"
             >
               <div class="product__cols">
-                <span class="product__info text-gray-800 font-medium"
+                <span class="product__info font-medium text-gray-800"
                   >SKU:</span
                 >
                 <span class="product__info text-neutral-600"
@@ -188,26 +192,26 @@
                 >
               </div>
               <div class="product__cols">
-                <span class="product__info text-gray-800 font-medium"
+                <span class="product__info font-medium text-gray-800"
                   >Brand:</span
                 >
                 <span class="product__info text-neutral-600">Ikea</span>
               </div>
               <div class="product__cols">
-                <span class="product__info text-gray-800 font-medium"
+                <span class="product__info font-medium text-gray-800"
                   >Available:</span
                 >
                 <span class="product__info text-neutral-600">In Stock</span>
               </div>
-              <div class="product__cols items-center mb-8">
-                <span class="product__info text-gray-800 font-medium"
+              <div class="product__cols mb-8 items-center">
+                <span class="product__info font-medium text-gray-800"
                   >Colors:</span
                 >
                 <div class="flex items-center space-x-4">
                   <button
-                    class="flex items-center justify-center w-6 h-6 bg-[#000] text-white rounded-full"
+                    class="flex h-6 w-6 items-center justify-center rounded-full bg-[#000] text-white"
                   >
-                    <svg class="w-4 h-4 fill-current">
+                    <svg class="h-4 w-4 fill-current">
                       <use
                         xlink:href="../../src/icons/icons.svg#icon-check"
                       ></use>
@@ -217,27 +221,27 @@
               </div>
             </div>
             <div
-              class="flex flex-wrap items-center justify-center sm:justify-start gap-8"
+              class="flex flex-wrap items-center justify-center gap-8 sm:justify-start"
             >
               <div class="flex items-center">
-                <button type="button" class="btn__control w-8 h-8">
-                  <svg class="w-5 h-5 fill-current">
+                <button type="button" class="btn__control h-8 w-8">
+                  <svg class="h-5 w-5 fill-current">
                     <use
                       xlink:href="../../src/icons/icons.svg#icon-minus"
                     ></use>
                   </svg>
                 </button>
-                <span class="text-neutral-600 text-xl font-semibold mx-4"
+                <span class="mx-4 text-xl font-semibold text-neutral-600"
                   >1</span
                 >
-                <button type="button" class="btn__control w-8 h-8">
-                  <svg class="w-5 h-5 fill-current">
+                <button type="button" class="btn__control h-8 w-8">
+                  <svg class="h-5 w-5 fill-current">
                     <use xlink:href="../../src/icons/icons.svg#icon-add"></use>
                   </svg>
                 </button>
               </div>
               <button
-                class="text-sm sm:text-base text-white uppercase font-medium px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-400 tracking-wide transition duration-300"
+                class="rounded-full bg-amber-500 px-4 py-2 text-sm font-medium uppercase tracking-wide text-white transition duration-300 hover:bg-amber-400 sm:text-base"
               >
                 Add to Cart
               </button>
