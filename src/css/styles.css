@@ -74,4 +74,8 @@
   .icon {
     @apply flex items-center text-amber-400 transition duration-300 hover:text-amber-500;
   }
+
+  .slider-thumb::-webkit-slider-thumb {
+    @apply h-4 w-4 cursor-pointer appearance-none rounded-full bg-amber-500;
+  }
 }
