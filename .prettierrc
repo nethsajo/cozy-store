@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "arrowParens": "avoid",
+  "printWidth": 120,
   "tailwindConfig": "./tailwind.config.js"
 }

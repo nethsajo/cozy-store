@@ -9,15 +9,14 @@
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-      sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+      Droid Sans, Helvetica Neue, sans-serif;
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex text-sm sm:text-base font-semibold uppercase py-3 px-6 tracking-wide rounded-md transition  duration-300;
+    @apply inline-flex rounded-md py-3 px-6 text-sm font-semibold uppercase tracking-wide transition duration-300  sm:text-base;
   }
 
   .btn--primary {
@@ -25,23 +24,23 @@
   }
 
   .btn__link {
-    @apply inline-block text-sm sm:text-base text-amber-500 hover:text-amber-400 uppercase font-medium tracking-wider transition duration-300 underline underline-offset-8 hover:no-underline;
+    @apply inline-block text-sm font-medium uppercase tracking-wider text-amber-500 underline underline-offset-8 transition duration-300 hover:text-amber-400 hover:no-underline sm:text-base;
   }
 
   .btn__icon {
-    @apply h-10 w-10 flex items-center text-gray-600 hover:text-amber-500 transition duration-300;
+    @apply flex h-10 w-10 items-center text-gray-600 transition duration-300 hover:text-amber-500;
   }
 
   .btn__control {
-    @apply flex items-center justify-center text-amber-500 rounded-full bg-amber-100 hover:bg-amber-200 transition duration-300;
+    @apply flex items-center justify-center rounded-full bg-amber-100 text-amber-500 transition duration-300 hover:bg-amber-200;
   }
 
   .badge {
-    @apply absolute rounded-full bg-amber-500 w-5 h-5 flex items-center justify-center text-white text-xs font-medium leading-none;
+    @apply absolute flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-xs font-medium leading-none text-white;
   }
 
   .badge__text {
-    @apply bg-amber-500 rounded-full items-center justify-center px-3 py-1;
+    @apply items-center justify-center rounded-full bg-amber-500 px-3 py-1;
   }
 
   .btn__card {
@@ -49,15 +48,15 @@
   }
 
   .link {
-    @apply inline-block text-zinc-600 hover:text-amber-500 transition duration-300 font-medium;
+    @apply inline-block font-medium text-zinc-600 transition duration-300 hover:text-amber-500;
   }
 
   .overlay {
-    @apply fixed top-0 left-0 w-full h-full bg-zinc-800/[0.20] transition delay-300 z-10;
+    @apply fixed top-0 left-0 z-10 h-full w-full bg-zinc-800/[0.20] transition delay-300;
   }
 
   .sidepanel {
-    @apply absolute w-full  h-full top-0 bg-white z-10;
+    @apply absolute top-0  z-10 h-full w-full bg-white;
   }
 
   .product__cols {
@@ -65,10 +64,14 @@
   }
 
   .product__info {
-    @apply text-base xs:text-sm sm:text-lg;
+    @apply text-base sm:text-lg xs:text-sm;
   }
 
   .breadcrumb {
-    @apply text-base xs:text-sm sm:text-xl lg:text-2xl;
+    @apply text-base sm:text-xl lg:text-2xl xs:text-sm;
+  }
+
+  .icon {
+    @apply flex items-center text-amber-400 transition duration-300 hover:text-amber-500;
   }
 }

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../../src/css/styles.css" />
+    <!-- SCRIPTS -->
+    <script defer type="module" src="../../src/js/controller.js"></script>
+    <title>Cozy</title>
+  </head>
+  <body>
+    <header
+      class="mx-auto h-20 max-w-full px-8 sm:max-w-2xl lg:h-24 lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4"
+    >
+      <!-- NAVIGATION -->
+      <nav class="nav flex h-full items-center justify-around">
+        <div class="flex-1 lg:hidden">
+          <button class="btn__icon">
+            <svg class="h-6 w-6 fill-current">
+              <use xlink:href="../../src/icons/icons.svg#icon-menu"></use>
+            </svg>
+          </button>
+          <div class="overlay -translate-x-full">
+            <div class="sidepanel left-0 sm:w-[30%]">
+              <ul class="flex h-full flex-col space-y-8 pt-24">
+                <li class="px-8">
+                  <a href="#" class="link text-xl">Home</a>
+                </li>
+                <li class="px-8">
+                  <a href="#" class="link text-xl">Products</a>
+                </li>
+                <li class="px-8">
+                  <a href="#" class="link text-xl">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="hidden flex-1 space-x-10 lg:flex">
+          <li><a href="#" class="link">Home</a></li>
+          <li><a href="#" class="link">Products</a></li>
+          <li><a href="#" class="link">About</a></li>
+        </ul>
+        <!-- LOGO -->
+        <div class="flex-none px-6">
+          <a href="#" class="block text-lg font-bold uppercase tracking-wide text-amber-500 sm:text-2xl">Cozy</a>
+        </div>
+        <!-- CART -->
+        <div class="flex-1">
+          <button class="btn__icon relative ml-auto justify-end">
+            <svg class="h-6 w-6 fill-current">
+              <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
+            </svg>
+            <span class="badge top-0 -right-2">1</span>
+          </button>
+          <div class="overlay translate-x-full">
+            <aside class="sidepanel right-0 pt-24 sm:w-2/4 lg:w-[30%]">
+              <h3 class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600">Cart Summary</h3>
+              <div class="cart__items">
+                <article class="border-b border-neutral-100 last:border-0">
+                  <a href="#" class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col">
+                    <figure class="h-16 flex-[0_0_64px] rounded-sm bg-amber-300 xs:h-20 xs:flex-none">
+                      <!-- <img src="" alt="" class="w-full h-full object-cover object-center"> -->
+                    </figure>
+                    <div class="ml-4 flex-1 overflow-hidden xs:ml-0 xs:mt-3">
+                      <span
+                        class="mb-2 block max-w-xs overflow-hidden text-ellipsis whitespace-nowrap font-medium uppercase tracking-wide text-neutral-600"
+                        >High-back bench
+                      </span>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                          <button class="btn__control bg-amber-200 hover:bg-amber-300">
+                            <svg class="h-4 w-4 fill-current">
+                              <use xlink:href="../../src/icons/icons.svg#icon-add"></use>
+                            </svg>
+                          </button>
+                          <span class="text-base font-semibold text-neutral-600">1</span>
+                          <button class="btn__control bg-amber-200 hover:bg-amber-300">
+                            <svg class="h-4 w-4 fill-current">
+                              <use xlink:href="../../src/icons/icons.svg#icon-minus"></use>
+                            </svg>
+                          </button>
+                        </div>
+                        <button class="ml-auto self-center text-red-500 transition duration-300 hover:text-red-600">
+                          <svg class="h-5 w-5 fill-current">
+                            <use xlink:href="../../src/icons/icons.svg#icon-trash"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
+        <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
+          <nav class="flex" aria-label="Breadcrumb">
+            <ul class="flex flex-wrap items-center slash:mx-2 slash:content-['/\00a0']">
+              <li class="breadcrumb flex items-center">
+                <a href="#" class="font-medium text-zinc-600">Home</a>
+              </li>
+              <li class="breadcrumb flex items-center">
+                <span class="font-semibold text-amber-500">Products</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+      <section
+        class="mx-auto max-w-lg px-8 py-24 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4 xs:pt-12"
+      >
+        <div class="grid grid-cols-1 gap-16 sm:grid-cols-[auto_1fr]">
+          <div>Joyjoy Reyes</div>
+          <div class="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 xl:gap-12">
+            <div
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
+            >
+              <figure class="relative h-52 w-full overflow-hidden xl:w-full">
+                <img
+                  src="../../src/images/chair-1.jpg"
+                  alt="Chair 1"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
+                />
+              </figure>
+              <div class="flex flex-col">
+                <div class="px-6 pb-8 pt-4">
+                  <span
+                    class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-500"
+                    >Brand</span
+                  >
+                  <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600">
+                    Entertainment Center
+                  </h4>
+                  <div class="mt-4 flex items-center justify-between">
+                    <div class="flex items-baseline space-x-1 text-amber-500">
+                      <span class="text-sm font-medium">&#8369;</span>
+                      <p class="text-lg font-medium lg:text-xl">5,000.00</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <a href="./details.html" class="icon h-6 w-6" aria-label="View">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-search"></use>
+                        </svg>
+                      </a>
+                      <button class="icon h-6 w-6" aria-label="Add to Cart">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
+                        </svg>
+                      </button>
+                      <button class="icon h-6 w-6" aria-label="Add to Wishlist">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-wishlist"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
+            >
+              <figure class="relative h-52 w-full overflow-hidden xl:w-full">
+                <img
+                  src="../../src/images/chair-1.jpg"
+                  alt="Chair 1"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
+                />
+              </figure>
+              <div class="flex flex-col">
+                <div class="px-6 pb-8 pt-4">
+                  <span
+                    class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-500"
+                    >Brand</span
+                  >
+                  <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600">
+                    Entertainment Center
+                  </h4>
+                  <div class="mt-4 flex items-center justify-between">
+                    <div class="flex items-baseline space-x-1 text-amber-500">
+                      <span class="text-sm font-medium">&#8369;</span>
+                      <p class="text-lg font-medium lg:text-xl">5,000.00</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <a href="./details.html" class="icon h-6 w-6" aria-label="View">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-search"></use>
+                        </svg>
+                      </a>
+                      <button class="icon h-6 w-6" aria-label="Add to Cart">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
+                        </svg>
+                      </button>
+                      <button class="icon h-6 w-6" aria-label="Add to Wishlist">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-wishlist"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
+            >
+              <figure class="relative h-52 w-full overflow-hidden xl:w-full">
+                <img
+                  src="../../src/images/chair-1.jpg"
+                  alt="Chair 1"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
+                />
+              </figure>
+              <div class="flex flex-col">
+                <div class="px-6 pb-8 pt-4">
+                  <span
+                    class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-500"
+                    >Brand</span
+                  >
+                  <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600">
+                    Entertainment Center
+                  </h4>
+                  <div class="mt-4 flex items-center justify-between">
+                    <div class="flex items-baseline space-x-1 text-amber-500">
+                      <span class="text-sm font-medium">&#8369;</span>
+                      <p class="text-lg font-medium lg:text-xl">5,000.00</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <a href="./details.html" class="icon h-6 w-6" aria-label="View">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-search"></use>
+                        </svg>
+                      </a>
+                      <button class="icon h-6 w-6" aria-label="Add to Cart">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-cart"></use>
+                        </svg>
+                      </button>
+                      <button class="icon h-6 w-6" aria-label="Add to Wishlist">
+                        <svg class="h-5 w-5 fill-current">
+                          <use xlink:href="../../src/icons/icons.svg#icon-wishlist"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
