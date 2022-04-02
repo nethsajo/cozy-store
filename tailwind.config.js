@@ -13,9 +13,31 @@ module.exports = {
       boxShadow: {
         customSm: '0 4px 18px rgba(32,32,32,0.05)',
       },
+      keyframes: {
+        ripple: {
+          '0%': {
+            top: '52px',
+            left: '52px',
+            width: 0,
+            height: 0,
+            opacity: 1,
+          },
+          '100%': {
+            top: 0,
+            left: 0,
+            width: '104px',
+            height: '104px',
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        ripple: 'ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite',
+      },
     },
   },
   plugins: [
+    require('tailwindcss-animation-delay'),
     plugin(function ({ addVariant }) {
       addVariant('slash', '.breadcrumb:not(:first-child):before');
     }),

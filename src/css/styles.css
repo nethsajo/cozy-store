@@ -39,14 +39,6 @@
     @apply absolute flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-xs font-medium leading-none text-white;
   }
 
-  .badge__text {
-    @apply items-center justify-center rounded-full bg-amber-500 px-3 py-1;
-  }
-
-  .btn__card {
-    @apply inline-block px-2 py-3 text-center text-xs font-medium uppercase tracking-wide transition duration-300;
-  }
-
   .link {
     @apply inline-block font-medium text-zinc-600 transition duration-300 hover:text-amber-500;
   }
@@ -77,5 +69,17 @@
 
   .slider-thumb::-webkit-slider-thumb {
     @apply h-4 w-4 cursor-pointer appearance-none rounded-full bg-amber-500;
+  }
+
+  .ripple {
+    @apply relative flex h-24 w-24 items-center justify-center;
+  }
+
+  .ripple div {
+    @apply absolute animate-ripple rounded-full border-4 border-amber-500 opacity-100;
+  }
+
+  .ripple div:nth-child(2) {
+    animation-delay: -0.5s;
   }
 }
