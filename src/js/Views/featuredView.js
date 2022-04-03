@@ -2,17 +2,16 @@ import View from './Views';
 import icons from 'url:../../icons/icons.svg';
 
 class FeaturedView extends View {
-  _data;
   _parentElement = document.querySelector('.featured');
   _errorMessage = 'No products found!';
 
   renderError(message = this._errorMessage) {
-    const markup = `
-      <div class="flex flex-col items-center justify-center gap-6">
-        <svg class="h-8 w-8 sm:h-8 sm:w-8 fill-red-600">
+    const markup = /*html*/ `
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <svg class="h-6 w-6 sm:h-8 sm:w-8 fill-red-600">
           <use xlink:href="${icons}#icon-warning"></use>
         </svg>
-        <span class="xs:text-lg text-xl text-neutral-500 font-medium">${message}</span>
+        <span class="text-xl text-neutral-600 font-medium sm:text-2xl xs:text-lg">${message}</span>
       </div>
     `;
 
@@ -21,7 +20,7 @@ class FeaturedView extends View {
   }
 
   _generateMarkup() {
-    return `
+    return /*html*/ `
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-12">
         ${this._data.map(product => this._generateFeaturedProducts(product)).join('')}
       </div>    
@@ -30,7 +29,7 @@ class FeaturedView extends View {
 
   _generateFeaturedProducts(product) {
     const { id, name, brand, price, image } = product;
-    return `
+    return /*html*/ `
       <a
         href="./pages/details.html?id=${id}"
         class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg">
@@ -55,11 +54,6 @@ class FeaturedView extends View {
                 <p class="text-lg font-medium">${price}</p>
               </div>
               <div class="flex items-center space-x-3">
-                <button class="icon add__cart h-6 w-6" aria-label="Add to Cart">
-                  <svg class="h-5 w-5 fill-current">
-                    <use xlink:href="${icons}#icon-cart"></use>
-                  </svg>
-                </button>
                 <button class="icon add__wishlist h-6 w-6" aria-label="Add to Wishlist">
                   <svg class="h-5 w-5 fill-current">
                     <use xlink:href="${icons}#icon-wishlist"></use>

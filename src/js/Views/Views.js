@@ -12,7 +12,7 @@ export default class View {
   }
 
   renderSpinner() {
-    const markup = `
+    const markup = /*html*/ `
       <div class="flex flex-col items-center justify-center">
         <div class="ripple">
           <div></div>
