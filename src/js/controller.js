@@ -17,7 +17,9 @@ const controlProducts = async function () {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
 
+  DetailView.renderSpinner();
   await model.loadSingleProduct(id);
+  DetailView.render(model.state.product);
 };
 
 const init = () => {
