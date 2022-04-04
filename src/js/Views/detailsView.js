@@ -1,5 +1,7 @@
 import View from './Views';
-import icons from '../../icons/icons.svg';
+import icons from 'url:../../icons/icons.svg';
+import homePage from '../../../public/index.html';
+import productPage from '../../../public/pages/products.html';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
@@ -8,6 +10,7 @@ class DetailView extends View {
     super();
     this._addHandlerProductGallery();
     this._addHandlerProductColor();
+    this._addHandlerProductQuanity();
   }
 
   addHandlerRender(handler) {
@@ -16,6 +19,7 @@ class DetailView extends View {
 
   _addHandlerProductGallery() {
     this._parentElement.addEventListener('click', function (e) {
+      e.preventDefault();
       const images = document.querySelectorAll('.gallery__images');
       const clicked = e.target.closest('.gallery__images');
 
@@ -47,6 +51,21 @@ class DetailView extends View {
     });
   }
 
+  _handlerQuantity(e) {
+    const increase = e.target.closest('.btn__control--add');
+    const decrease = e.target.closest('.btn__control--minus');
+    let quantity = document.querySelector('.product__quantity');
+    const currentValue = Number(quantity.textContent) || 0;
+
+    if (increase) Number(quantity.textContent) < this._data.stocks ? (quantity.textContent = currentValue + 1) : 1;
+
+    if (decrease) Number(quantity.textContent > 1) ? (quantity.textContent = currentValue - 1) : 1;
+  }
+
+  _addHandlerProductQuanity() {
+    this._parentElement.addEventListener('click', this._handlerQuantity.bind(this));
+  }
+
   _generateMarkup() {
     return /*html*/ `
       <div class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
@@ -54,10 +73,10 @@ class DetailView extends View {
           <nav class="flex" aria-label="Breadcrumb">
             <ul class="flex flex-wrap items-center slash:mx-2 slash:content-['/']">
               <li class="breadcrumb flex items-center">
-                <a href="../../../public/index.html" class="font-medium text-zinc-600">Home</a>
+                <a href="${homePage}" class="font-medium text-zinc-600">Home</a>
               </li>
               <li class="breadcrumb flex items-center">
-                <a href="../../../public/pages/products.html" class="font-medium text-zinc-600">Product</a>
+                <a href="${productPage}" class="font-medium text-zinc-600">Product</a>
               </li>
               <li class="breadcrumb flex items-center">
                 <span class="font-semibold capitalize text-amber-500">${this._data.name}</span>
@@ -127,13 +146,13 @@ class DetailView extends View {
                 ? /*html*/ `
                 <div class="flex flex-wrap items-center justify-center gap-8 sm:justify-start">
                   <div class="flex items-center">
-                    <button type="button" class="btn__control h-8 w-8">
+                    <button type="button" class="btn__control btn__control--minus h-8 w-8">
                       <svg class="h-5 w-5 fill-current">
                         <use xlink:href="${icons}#icon-minus"></use>
                       </svg>
                     </button>
-                    <span class="mx-4 text-xl font-semibold text-neutral-600">1</span>
-                    <button type="button" class="btn__control h-8 w-8">
+                    <span class="product__quantity mx-4 text-xl font-semibold text-neutral-600">1</span>
+                    <button type="button" class="btn__control btn__control--add h-8 w-8">
                       <svg class="h-5 w-5 fill-current">
                         <use xlink:href="${icons}#icon-add"></use>
                       </svg>
@@ -180,7 +199,6 @@ class DetailView extends View {
   _generateProductRatings(ratings) {
     const stars = Array.from({ length: 5 }, (_, index) => {
       const number = index + 0.5;
-      console.log(ratings, index, number);
 
       return /*html*/ `
         <span class="text-yellow-400">
