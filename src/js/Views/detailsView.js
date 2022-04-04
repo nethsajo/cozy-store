@@ -135,38 +135,37 @@ class DetailView extends View {
                 }</span>
               </div>
               <div class="product__cols mb-8 items-center">
-                <span class="product__info font-medium text-gray-800">Colors:</span>
-                <div class="flex items-center space-x-4">
-                  ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
-                </div>
+                ${
+                  this._data.stocks > 0
+                    ? `
+                    <span class="product__info font-medium text-gray-800">Colors:</span>
+                  <div class="flex items-center space-x-4">
+                    ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
+                  </div>`
+                    : ''
+                }
               </div>
             </div>
-            ${
-              this._data.stocks > 0
-                ? /*html*/ `
-                <div class="flex flex-wrap items-center justify-center gap-8 sm:justify-start">
-                  <div class="flex items-center">
-                    <button type="button" class="btn__control btn__control--minus h-8 w-8">
-                      <svg class="h-5 w-5 fill-current">
-                        <use xlink:href="${icons}#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <span class="product__quantity mx-4 text-xl font-semibold text-neutral-600">1</span>
-                    <button type="button" class="btn__control btn__control--add h-8 w-8">
-                      <svg class="h-5 w-5 fill-current">
-                        <use xlink:href="${icons}#icon-add"></use>
-                      </svg>
-                    </button>
-                  </div>
-                  <button
-                    class="rounded-full bg-amber-500 px-4 py-2 text-sm font-medium uppercase tracking-wide text-white transition duration-300 hover:bg-amber-400 sm:text-base"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              `
-                : ''
-            }
+            <div class="${this._data.stocks < 1 ? 'hidden' : 'flex'} flex-wrap items-center justify-center gap-8 sm:justify-start">
+              <div class="flex items-center">
+                <button type="button" class="btn__control btn__control--minus h-8 w-8">
+                  <svg class="h-5 w-5 fill-current">
+                    <use xlink:href="${icons}#icon-minus"></use>
+                  </svg>
+                </button>
+                <span class="product__quantity mx-4 text-xl font-semibold text-neutral-600">1</span>
+                <button type="button" class="btn__control btn__control--add h-8 w-8">
+                  <svg class="h-5 w-5 fill-current">
+                    <use xlink:href="${icons}#icon-add"></use>
+                  </svg>
+                </button>
+              </div>
+              <button
+                class="rounded-full bg-amber-500 px-4 py-2 text-sm font-medium uppercase tracking-wide text-white transition duration-300 hover:bg-amber-400 sm:text-base"
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
