@@ -5,20 +5,6 @@ class FeaturedView extends View {
   _parentElement = document.querySelector('.featured');
   _errorMessage = 'No products found!';
 
-  renderError(message = this._errorMessage) {
-    const markup = /*html*/ `
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <svg class="h-6 w-6 sm:h-8 sm:w-8 fill-red-600">
-          <use xlink:href="${icons}#icon-warning"></use>
-        </svg>
-        <span class="text-xl text-neutral-600 font-medium sm:text-2xl xs:text-lg">${message}</span>
-      </div>
-    `;
-
-    this._parentElement.innerHTML = '';
-    this._parentElement.insertAdjacentHTML('afterbegin', markup);
-  }
-
   _generateMarkup() {
     return /*html*/ `
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-12">

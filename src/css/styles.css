@@ -99,4 +99,8 @@
   .gallery__img--active {
     @apply h-full w-full bg-white opacity-50;
   }
+
+  .color__active {
+    @apply opacity-100;
+  }
 }

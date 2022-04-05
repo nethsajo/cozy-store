@@ -48,5 +48,6 @@ export const loadSingleProduct = async function (id) {
     console.log(state.product);
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
