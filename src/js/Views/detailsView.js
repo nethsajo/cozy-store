@@ -21,7 +21,6 @@ class DetailView extends View {
 
   _addHandlerProductGallery() {
     this._parentElement.addEventListener('click', function (e) {
-      e.preventDefault();
       const images = document.querySelectorAll('.gallery__images');
       const clicked = e.target.closest('.gallery__images');
 
@@ -76,7 +75,7 @@ class DetailView extends View {
 
   _generateMarkup() {
     return /*html*/ `
-      <div>
+      <div class="product__detail">
         <div class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
           <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
             <nav class="flex" aria-label="Breadcrumb">
@@ -85,7 +84,7 @@ class DetailView extends View {
                   <a href="${homePage}" class="font-medium text-zinc-600">Home</a>
                 </li>
                 <li class="breadcrumb flex items-center">
-                  <a href="${productPage}" class="font-medium text-zinc-600">Product</a>
+                  <a href="${productPage}" class="font-medium text-zinc-600">Products</a>
                 </li>
                 <li class="breadcrumb flex items-center">
                   <span class="font-semibold capitalize text-amber-500">${this._data.name}</span>
@@ -193,7 +192,7 @@ class DetailView extends View {
       <img
         src="${url}"
         alt="${filename}"
-        class="gallery__images block h-14 cursor-pointer rounded-sm object-cover sm:h-28 lg:h-32 xl:h-20"
+        class="gallery__images block h-14 cursor-pointer rounded-sm object-cover object-center sm:h-28 lg:h-32 xl:h-20"
         data-id="${id}"
       />
     `;

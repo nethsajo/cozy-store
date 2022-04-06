@@ -1,7 +1,7 @@
 import * as model from '../model';
 import DetailView from '../Views/detailsView';
 
-const controlProducts = async function () {
+const controlProductDetails = async function () {
   try {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -18,7 +18,7 @@ const controlProducts = async function () {
 };
 
 const init = () => {
-  DetailView.addHandlerRender(controlProducts);
+  DetailView.addHandlerRender(controlProductDetails);
 };
 
 init();

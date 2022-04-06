@@ -25,3 +25,16 @@ export const formatPrice = function (price) {
     currency: CURRENCY,
   }).format((price / 100).toFixed(2));
 };
+
+export const getUniqueValues = function (data, type) {
+  let unique = data.map(product => product[type]);
+
+  return ['all', ...new Set(unique)];
+};
+
+export const getMaxPrice = function (data) {
+  let maxPrice = data.map(product => product.price);
+  maxPrice = Math.max(...maxPrice);
+
+  return maxPrice;
+};
