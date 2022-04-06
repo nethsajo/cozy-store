@@ -9,7 +9,7 @@ class ProductsView extends View {
   constructor() {
     super();
     this._addShowHideAccordion();
-    this._addFilterPrice();
+    // this._addFilterPrice();
   }
   _handlerAccordion(e) {
     const accordionHeading = document.querySelectorAll('.accordion__heading');
@@ -27,23 +27,34 @@ class ProductsView extends View {
     clicked.nextElementSibling.classList.add('accordion__content--active');
   }
 
-  _handerFilterPrice(e) {
-    const priceFilter = e.target.closest('.price__filter');
-    const priceText = document.querySelector('.price__text');
-    const value = parseInt(priceFilter.value);
+  // _handerFilterPrice(e, handler) {
+  //   const priceFilter = e.target.closest('.price__filter');
+  //   const priceText = document.querySelector('.price__text');
+  //   const value = parseInt(priceFilter.value);
 
-    if (!priceFilter) return;
+  //   if (!priceFilter) return;
 
-    priceFilter.value = value;
-    priceText.textContent = formatPrice(value);
-  }
+  //   priceFilter.value = value;
+  //   priceText.textContent = formatPrice(value);
+  //   handler(value);
+  // }
 
   _addShowHideAccordion() {
     this._parentElement.addEventListener('click', this._handlerAccordion.bind(this));
   }
 
-  _addFilterPrice() {
-    this._parentElement.addEventListener('input', this._handerFilterPrice.bind(this));
+  addHandlerFilterPrice(handler) {
+    this._parentElement.addEventListener('input', function (e) {
+      const priceFilter = e.target.closest('.price__filter');
+      const priceText = document.querySelector('.price__text');
+      const value = parseInt(priceFilter.value);
+
+      if (!priceFilter) return;
+
+      priceFilter.value = value;
+      priceText.textContent = formatPrice(value);
+      handler(value);
+    });
   }
 
   _generateMarkup() {
@@ -150,7 +161,7 @@ class ProductsView extends View {
             </h4>
             <div class="mt-4 flex items-center justify-between">
               <div class="flex items-baseline space-x-1 text-amber-500">
-                <p class="text-lg font-medium">${price}</p>
+                <p class="text-lg font-medium">${formatPrice(price)}</p>
               </div>
               <div class="flex items-center space-x-3">
                 <button class="icon h-6 w-6" aria-label="Add to Wishlist">
@@ -176,7 +187,7 @@ class ProductsView extends View {
 
   _generateProductBrands(brand) {
     return /*html*/ `
-      <button class="font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brands}>
+      <button class="font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
         ${brand}
       </button>
     `;

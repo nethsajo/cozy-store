@@ -67,7 +67,7 @@ export const loadAllProducts = async function () {
         name: product.name,
         image: product.image,
         brand: product.company,
-        price: formatPrice(product.price),
+        price: product.price,
       };
     });
 
@@ -79,4 +79,9 @@ export const loadAllProducts = async function () {
     console.error(error);
     throw error;
   }
+};
+
+export const loadFilterPrice = function (value) {
+  const filtered = state.results.products.filter(product => product.price < value);
+  console.log(filtered);
 };

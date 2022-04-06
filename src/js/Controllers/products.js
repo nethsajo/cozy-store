@@ -11,8 +11,13 @@ const controlProducts = async function () {
   }
 };
 
+const controlFilterPrice = function (value) {
+  model.loadFilterPrice(value);
+};
+
 const init = () => {
   controlProducts();
+  ProductsView.addHandlerFilterPrice(controlFilterPrice);
 };
 
 init();
