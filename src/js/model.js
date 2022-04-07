@@ -6,6 +6,7 @@ export const state = {
   product: {},
   results: {
     products: [],
+    filtered: [],
     filters: {
       categories: [],
       brand: [],
@@ -26,7 +27,7 @@ export const loadFeaturedProduct = async function () {
           name: product.name,
           image: product.image,
           brand: product.company,
-          price: formatPrice(product.price),
+          price: product.price,
         };
       });
   } catch (error) {
@@ -82,6 +83,10 @@ export const loadAllProducts = async function () {
 };
 
 export const loadFilterPrice = function (value) {
-  const filtered = state.results.products.filter(product => product.price < value);
-  console.log(filtered);
+  const filtered = state.results.products.filter(product => product.price <= value);
+
+  if (filtered.length < 1) console.log('Sorry, no products matched your search!');
+
+  state.results.filtered = filtered;
+  console.log(state.results.filtered);
 };

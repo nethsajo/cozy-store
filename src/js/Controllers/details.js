@@ -5,6 +5,7 @@ const controlProductDetails = async function () {
   try {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
+    console.log(id, params);
 
     if (!id) return;
 
@@ -12,8 +13,8 @@ const controlProductDetails = async function () {
     await model.loadSingleProduct(id);
     DetailView.render(model.state.product);
   } catch (error) {
-    console.error(`${error} 💥💥💥`);
     DetailView.renderError();
+    console.error(`${error} 💥💥💥`);
   }
 };
 

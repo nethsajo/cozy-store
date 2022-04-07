@@ -1,4 +1,5 @@
-import View from './Views';
+import View from './View';
+import resultView from './resultView';
 import icons from 'url:../../icons/icons.svg';
 import homePage from '../../../public/index.html';
 import { formatPrice } from '../helpers';
@@ -9,8 +10,8 @@ class ProductsView extends View {
   constructor() {
     super();
     this._addShowHideAccordion();
-    // this._addFilterPrice();
   }
+
   _handlerAccordion(e) {
     const accordionHeading = document.querySelectorAll('.accordion__heading');
     const accordionContent = document.querySelectorAll('.accordion__content');
@@ -26,18 +27,6 @@ class ProductsView extends View {
 
     clicked.nextElementSibling.classList.add('accordion__content--active');
   }
-
-  // _handerFilterPrice(e, handler) {
-  //   const priceFilter = e.target.closest('.price__filter');
-  //   const priceText = document.querySelector('.price__text');
-  //   const value = parseInt(priceFilter.value);
-
-  //   if (!priceFilter) return;
-
-  //   priceFilter.value = value;
-  //   priceText.textContent = formatPrice(value);
-  //   handler(value);
-  // }
 
   _addShowHideAccordion() {
     this._parentElement.addEventListener('click', this._handlerAccordion.bind(this));
@@ -128,52 +117,10 @@ class ProductsView extends View {
             </aside>
           </div>
           <div class="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-            ${this._data.products.map(products => this._generateProducts(products)).join('')}
+            ${this._data.products.map(products => resultView.render(products, false)).join('')}
           </div>
         </div>
       </section>
-    `;
-  }
-
-  _generateProducts(products) {
-    const { id, name, brand, image, price } = products;
-
-    return /*html*/ `
-      <a
-        href="./details.html?id=${id}"
-        class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
-      >
-        <figure class="relative h-40 w-full overflow-hidden xl:w-full">
-          <img
-            src="${image}"
-            alt="${name}"
-            class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
-          />
-        </figure>
-        <div class="flex flex-col">
-          <div class="px-6 pb-8 pt-6">
-            <span
-              class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-500"
-              >${brand}</span
-            >
-            <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600">
-              ${name}
-            </h4>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-baseline space-x-1 text-amber-500">
-                <p class="text-lg font-medium">${formatPrice(price)}</p>
-              </div>
-              <div class="flex items-center space-x-3">
-                <button class="icon h-6 w-6" aria-label="Add to Wishlist">
-                  <svg class="h-5 w-5 fill-current">
-                    <use xlink:href="${icons}#icon-wishlist"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
     `;
   }
 

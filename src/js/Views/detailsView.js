@@ -1,7 +1,7 @@
-import View from './Views';
+import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import homePage from '../../../public/index.html';
-import productPage from '../../../public/pages/products.html';
+import productPage from 'url:../../../public/pages/products.html';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
