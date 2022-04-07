@@ -30,7 +30,7 @@ class ResultView extends View {
             </h4>
             <div class="mt-4 flex items-center justify-between">
               <div class="flex items-baseline space-x-1 text-amber-500">
-                <p class="text-lg font-medium">${formatPrice(this._data.price)}</p>
+                <p class="text-lg font-medium" data-price="${this._data.price}">${formatPrice(this._data.price)}</p>
               </div>
               <div class="flex items-center space-x-3">
                 <button class="icon h-6 w-6" aria-label="Add to Wishlist">

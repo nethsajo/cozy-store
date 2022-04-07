@@ -2,7 +2,7 @@ import View from './View';
 import resultView from './resultView';
 import icons from 'url:../../icons/icons.svg';
 import homePage from '../../../public/index.html';
-import { formatPrice } from '../helpers';
+import { formatPrice, getUniqueValues, getMaxPrice } from '../helpers';
 
 class ProductsView extends View {
   _parentElement = document.querySelector('.products');
@@ -84,7 +84,9 @@ class ProductsView extends View {
                   </svg>
                 </div>
                 <div class="accordion__content accordion__content--active">
-                  ${this._data.filters.categories.map(category => this._generateProductCategories(category)).join('')}
+                  ${getUniqueValues(this._data, 'category')
+                    .map(category => this._generateProductCategories(category))
+                    .join('')}
                 </div>
               </div>
               <div class="accordion">
@@ -95,29 +97,31 @@ class ProductsView extends View {
                   </svg>
                 </div>
                 <div class="accordion__content">
-                  ${this._data.filters.brand.map(brand => this._generateProductCategories(brand)).join('')}
+                  ${getUniqueValues(this._data, 'brand')
+                    .map(brand => this._generateProductCategories(brand))
+                    .join('')}
                 </div>
               </div>
               <div class="space-y-2">
                 <div class="flex items-center justify-between">
                   <h4 class="font-bold tracking-wide text-neutral-600">Price</h4>
-                  <p class="price__text font-medium text-gray-500">${formatPrice(this._data.filters.price)}</p>
+                  <p class="price__text font-medium text-gray-500">${formatPrice(getMaxPrice(this._data))}</p>
                 </div>
                 <form class="price__form">
                   <input
                     type="range"
                     name="price"
                     class="price__filter slider-thumb h-2 w-full appearance-none rounded-full bg-amber-200"
-                    value="${this._data.filters.price}"
+                    value="${getMaxPrice(this._data)}"
                     min="0"
-                    max=${this._data.filters.price}
+                    max=${getMaxPrice(this._data)}
                   />
                 </form>
               </div>
             </aside>
           </div>
           <div class="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-            ${this._data.products.map(products => resultView.render(products, false)).join('')}
+            ${this._data.map(products => resultView.render(products, false)).join('')}
           </div>
         </div>
       </section>

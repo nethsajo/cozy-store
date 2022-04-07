@@ -1,5 +1,6 @@
 import * as model from './model';
 import FeaturedView from './Views/featuredView';
+import MenuView from './Views/menuView';
 
 const controlFeaturedProducts = async function () {
   try {

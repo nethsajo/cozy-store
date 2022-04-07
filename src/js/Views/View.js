@@ -12,7 +12,7 @@ export default class View {
 
     if (!render) return markup;
 
-    this._parentElement.innerHTML = '';
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -26,7 +26,7 @@ export default class View {
       </div>
     `;
 
-    this._parentElement.innerHTML = '';
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -40,12 +40,11 @@ export default class View {
       </div>
     `;
 
-    this._parentElement.innerHTML = '';
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
-  _parseStringtoHTML(html) {
-    const parser = new DOMParser();
-    return parser.parseFromString(html, 'text/html');
+  _clear() {
+    this._parentElement.innerHTML = '';
   }
 }
