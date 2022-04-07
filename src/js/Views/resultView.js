@@ -10,7 +10,9 @@ class ResultView extends View {
     return /*html*/ `
       <a
         href="${detailsPage}&id=${this._data.id}"
-        class="relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
+        class="product__card relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg" data-price="${
+          this._data.price
+        }" ${this._data.category ? `data-category="${this._data.category}"` : ''}  data-brand="${this._data.brand}"
       >
         <figure class="relative h-48 sm:h-52 xl:h-44 w-full overflow-hidden xl:w-full">
           <img
@@ -30,7 +32,7 @@ class ResultView extends View {
             </h4>
             <div class="mt-4 flex items-center justify-between">
               <div class="flex items-baseline space-x-1 text-amber-500">
-                <p class="text-lg font-medium" data-price="${this._data.price}">${formatPrice(this._data.price)}</p>
+                <p class="text-lg font-medium">${formatPrice(this._data.price)}</p>
               </div>
               <div class="flex items-center space-x-3">
                 <button class="icon h-6 w-6" aria-label="Add to Wishlist">

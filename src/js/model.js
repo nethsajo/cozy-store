@@ -76,6 +76,6 @@ export const loadFilterPrice = function (value) {
 
   if (filtered.length < 1) throw new Error('Sorry, no products matched your search!');
 
-  state.products = filtered;
-  console.log(state.products);
+  state.filtered = filtered;
+  console.log(state.filtered);
 };

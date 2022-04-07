@@ -35,14 +35,21 @@ class ProductsView extends View {
   addHandlerFilterPrice(handler) {
     this._parentElement.addEventListener('input', function (e) {
       const priceFilter = e.target.closest('.price__filter');
+      const productCards = document.querySelectorAll('.product__card');
       const priceText = document.querySelector('.price__text');
-      const value = parseInt(priceFilter.value);
+      const value = parseInt(priceFilter.value, 10);
 
       if (!priceFilter) return;
 
+      productCards.forEach(card => {
+        const { price } = card.dataset;
+        if (+price >= value) card.classList.add('hidden');
+        else card.classList.remove('hidden');
+      });
+
       priceFilter.value = value;
       priceText.textContent = formatPrice(value);
-      handler(value);
+      // handler(value);
     });
   }
 

@@ -38,6 +38,7 @@ export const getUniqueValues = function (data, type) {
 export const getMaxPrice = function (data) {
   let maxPrice = data.map(product => product.price);
   maxPrice = Math.max(...maxPrice);
+  maxPrice = Math.ceil(maxPrice);
 
   return maxPrice;
 };
