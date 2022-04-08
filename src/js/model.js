@@ -81,6 +81,7 @@ export const loadAllProducts = async function () {
 };
 
 export const loadFilterPrice = function (value) {
-  if (value === '') return state.products;
-  else return state.products.filter(product => product.price <= value);
+  if (!value) return;
+
+  return state.products.filter(product => product.price <= value);
 };
