@@ -1,5 +1,6 @@
 import * as model from '../model';
 import ProductsView from '../Views/productsView';
+import FilterView from '../Views/filterView';
 import MenuView from '../Views/menuView';
 
 const controlProducts = async function () {
@@ -7,6 +8,7 @@ const controlProducts = async function () {
     ProductsView.renderSpinner();
     await model.loadAllProducts();
     ProductsView.render(model.state.products);
+    FilterView.render(model.state.filters);
   } catch (error) {
     console.error(`${error} 💥💥💥`);
   }
@@ -14,16 +16,16 @@ const controlProducts = async function () {
 
 const controlFilterPrice = function (value) {
   try {
-    model.loadFilterPrice(value);
-    // ProductsView.update(model.state.filtered);
+    console.log(model.loadFilterPrice(value));
+    ProductsView.render(model.loadFilterPrice(value));
   } catch (error) {
-    console.error(`${error} 💥💥💥`);
+    ProductsView.renderError();
   }
 };
 
 const init = () => {
   controlProducts();
-  ProductsView.addHandlerFilterPrice(controlFilterPrice);
+  FilterView.addHandlerFilterPrice(controlFilterPrice);
 };
 
 init();

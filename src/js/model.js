@@ -5,6 +5,11 @@ export const state = {
   product: {},
   featured: [],
   products: [],
+  filters: {
+    categories: [],
+    brands: [],
+    price: 0,
+  },
   filtered: [],
 };
 
@@ -65,6 +70,10 @@ export const loadAllProducts = async function () {
         price: product.price,
       };
     });
+
+    state.filters.categories = getUniqueValues(data, 'category');
+    state.filters.brands = getUniqueValues(data, 'company');
+    state.filters.price = getMaxPrice(data);
   } catch (error) {
     console.error(error);
     throw error;
@@ -72,10 +81,6 @@ export const loadAllProducts = async function () {
 };
 
 export const loadFilterPrice = function (value) {
-  const filtered = state.products.filter(product => product.price <= value);
-
-  if (filtered.length < 1) throw new Error('Sorry, no products matched your search!');
-
-  state.filtered = filtered;
-  console.log(state.filtered);
+  if (value === '') return state.products;
+  else return state.products.filter(product => product.price <= value);
 };
