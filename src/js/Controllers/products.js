@@ -23,19 +23,19 @@ const controlFilterPrice = function (value) {
   }
 };
 
-const controlFilterCategory = function (value) {
+const controlFilterProductByType = function (type, value) {
   try {
-    console.log(model.loadFilterCategory(value));
-    ProductsView.render(model.loadFilterCategory(value));
+    console.log(model.loadFilterProductByType(type, value));
+    ProductsView.render(model.loadFilterProductByType(type, value));
   } catch (error) {
     ProductsView.renderError();
   }
 };
 
-const controlFilterBrand = function (value) {
+const controlSearchProducts = function (query) {
   try {
-    console.log(model.loadFilterBrand(value));
-    ProductsView.render(model.loadFilterBrand(value));
+    console.log(model.loadSearchProduct(query));
+    ProductsView.render(model.loadSearchProduct(query));
   } catch (error) {
     ProductsView.renderError();
   }
@@ -44,8 +44,9 @@ const controlFilterBrand = function (value) {
 const init = () => {
   controlProducts();
   FilterView.addHandlerFilterPrice(controlFilterPrice);
-  FilterView.addHandlerFilterCategory(controlFilterCategory);
-  FilterView.addHandlerFilterBrand(controlFilterBrand);
+  FilterView.addHandlerFilterCategory(controlFilterProductByType);
+  FilterView.addHandlerFilterBrand(controlFilterProductByType);
+  FilterView.addHandlerSearch(controlSearchProducts);
 };
 
 init();

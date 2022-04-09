@@ -129,11 +129,19 @@
       >
         <div class="relative grid min-h-[inherit] grid-cols-1 items-start gap-12 sm:grid-cols-[auto_1fr]">
           <div class="relative h-auto sm:sticky sm:top-4">
+            <form class="search__form mb-8">
+              <input
+                type="text"
+                name="search"
+                placeholder="Search..."
+                class="search__input w-full appearance-none rounded-md border-2 border-transparent bg-neutral-50 px-3 py-2 leading-normal tracking-wider text-neutral-700 placeholder-neutral-700 focus:border-amber-500 focus:bg-white focus:outline-none sm:w-auto"
+              />
+            </form>
             <div class="filters">
               <!-- FILTERS WILL GO HERE... -->
             </div>
           </div>
-          <div class="products min-h-[inherit]">
+          <div class="products">
             <!-- PRODUCTS WILL GO HERE... -->
           </div>
         </div>

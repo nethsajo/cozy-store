@@ -10,7 +10,6 @@ export const state = {
     brands: [],
     price: 0,
   },
-  filtered: [],
 };
 
 export const loadFeaturedProduct = async function () {
@@ -81,19 +80,17 @@ export const loadAllProducts = async function () {
 };
 
 export const loadFilterPrice = function (value) {
-  if (!value) return;
-
   return state.products.filter(product => product.price <= value);
 };
 
-export const loadFilterCategory = function (value) {
+export const loadFilterProductByType = function (type, value) {
   if (value === 'all') return state.products;
 
-  return state.products.filter(product => product.category === value);
+  return state.products.filter(product => product[type] === value);
 };
 
-export const loadFilterBrand = function (value) {
-  if (value === 'all') return state.products;
+export const loadSearchProduct = function (query) {
+  if (query === '') return state.products;
 
-  return state.products.filter(product => product.brand === value);
+  return state.products.filter(product => product.name.toLowerCase().startsWith(query));
 };

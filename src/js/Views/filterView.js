@@ -4,6 +4,7 @@ import { formatPrice } from '../helpers';
 
 class FilterViews extends View {
   _parentElement = document.querySelector('.filters');
+  _searchForm = document.querySelector('.search__form');
 
   constructor() {
     super();
@@ -52,7 +53,7 @@ class FilterViews extends View {
 
       const { category } = btn.dataset;
 
-      handler(category);
+      handler('category', category);
     });
   }
 
@@ -64,20 +65,22 @@ class FilterViews extends View {
 
       const { brand } = btn.dataset;
 
-      handler(brand);
+      handler('brand', brand);
+    });
+  }
+
+  addHandlerSearch(handler) {
+    this._searchForm.addEventListener('keyup', function (e) {
+      e.preventDefault();
+
+      const query = document.querySelector('.search__input').value;
+
+      handler(query);
     });
   }
 
   _generateMarkup() {
     return /*html*/ `
-      <form class="mb-8">
-        <input
-          type="text"
-          name="search"
-          placeholder="Search..."
-          class="w-full appearance-none rounded-md border-2 border-transparent bg-neutral-50 px-3 py-2 leading-normal tracking-wider text-neutral-700 placeholder-neutral-700 focus:border-amber-500 focus:bg-white focus:outline-none sm:w-auto"
-        />
-      </form>
       <aside class="space-y-8">
         <div class="accordion">
           <div class="accordion__heading accordion__heading--active">
