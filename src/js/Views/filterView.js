@@ -44,6 +44,30 @@ class FilterViews extends View {
     });
   }
 
+  addHandlerFilterCategory(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn__category');
+
+      if (!btn) return;
+
+      const { category } = btn.dataset;
+
+      handler(category);
+    });
+  }
+
+  addHandlerFilterBrand(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn__brand');
+
+      if (!btn) return;
+
+      const { brand } = btn.dataset;
+
+      handler(brand);
+    });
+  }
+
   _generateMarkup() {
     return /*html*/ `
       <form class="mb-8">
@@ -74,7 +98,7 @@ class FilterViews extends View {
             </svg>
           </div>
           <div class="accordion__content">
-            ${this._data.brands.map(brand => this._generateProductCategories(brand)).join('')}
+            ${this._data.brands.map(brand => this._generateProductBrands(brand)).join('')}
           </div>
         </div>
         <div class="space-y-2">
@@ -99,7 +123,7 @@ class FilterViews extends View {
 
   _generateProductCategories(category) {
     return /*html*/ `
-      <button class="font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-category="${category}">
+      <button class="btn__category font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-category="${category}">
         ${category}
       </button>
     `;
@@ -107,7 +131,7 @@ class FilterViews extends View {
 
   _generateProductBrands(brand) {
     return /*html*/ `
-      <button class="font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
+      <button class="btn__brand font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
         ${brand}
       </button>
     `;

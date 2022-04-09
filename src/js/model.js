@@ -85,3 +85,15 @@ export const loadFilterPrice = function (value) {
 
   return state.products.filter(product => product.price <= value);
 };
+
+export const loadFilterCategory = function (value) {
+  if (value === 'all') return state.products;
+
+  return state.products.filter(product => product.category === value);
+};
+
+export const loadFilterBrand = function (value) {
+  if (value === 'all') return state.products;
+
+  return state.products.filter(product => product.brand === value);
+};

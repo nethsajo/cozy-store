@@ -23,9 +23,29 @@ const controlFilterPrice = function (value) {
   }
 };
 
+const controlFilterCategory = function (value) {
+  try {
+    console.log(model.loadFilterCategory(value));
+    ProductsView.render(model.loadFilterCategory(value));
+  } catch (error) {
+    ProductsView.renderError();
+  }
+};
+
+const controlFilterBrand = function (value) {
+  try {
+    console.log(model.loadFilterBrand(value));
+    ProductsView.render(model.loadFilterBrand(value));
+  } catch (error) {
+    ProductsView.renderError();
+  }
+};
+
 const init = () => {
   controlProducts();
   FilterView.addHandlerFilterPrice(controlFilterPrice);
+  FilterView.addHandlerFilterCategory(controlFilterCategory);
+  FilterView.addHandlerFilterBrand(controlFilterBrand);
 };
 
 init();
