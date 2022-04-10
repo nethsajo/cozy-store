@@ -3,6 +3,9 @@ import ProductsView from '../Views/productsView';
 import FilterView from '../Views/filterView';
 import MenuView from '../Views/menuView';
 
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 const controlProducts = async function () {
   try {
     ProductsView.renderSpinner();
@@ -16,8 +19,8 @@ const controlProducts = async function () {
 
 const controlFilterPrice = function (value) {
   try {
-    console.log(model.loadFilterPrice(value));
-    ProductsView.render(model.loadFilterPrice(value));
+    model.state.filtered = model.loadFilterPrice(value);
+    ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
   }
@@ -25,8 +28,8 @@ const controlFilterPrice = function (value) {
 
 const controlFilterProductByType = function (type, value) {
   try {
-    console.log(model.loadFilterProductByType(type, value));
-    ProductsView.render(model.loadFilterProductByType(type, value));
+    model.state.filtered = model.loadFilterProductByType(type, value);
+    ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
   }
@@ -34,8 +37,8 @@ const controlFilterProductByType = function (type, value) {
 
 const controlSearchProducts = function (query) {
   try {
-    console.log(model.loadSearchProduct(query));
-    ProductsView.render(model.loadSearchProduct(query));
+    model.state.filtered = model.loadSearchProduct(query);
+    ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
   }

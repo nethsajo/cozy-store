@@ -10,6 +10,7 @@ export const state = {
     brands: [],
     price: 0,
   },
+  filtered: [],
 };
 
 export const loadFeaturedProduct = async function () {
@@ -73,6 +74,8 @@ export const loadAllProducts = async function () {
     state.filters.categories = getUniqueValues(data, 'category');
     state.filters.brands = getUniqueValues(data, 'company');
     state.filters.price = getMaxPrice(data);
+    state.filtered = [...state.products];
+    console.log(state);
   } catch (error) {
     console.error(error);
     throw error;
@@ -80,17 +83,19 @@ export const loadAllProducts = async function () {
 };
 
 export const loadFilterPrice = function (value) {
-  return state.products.filter(product => product.price <= value);
+  if (!value) return state.products;
+
+  return state.filtered.filter(product => product.price <= value);
 };
 
 export const loadFilterProductByType = function (type, value) {
   if (value === 'all') return state.products;
 
-  return state.products.filter(product => product[type] === value);
+  return state.filtered.filter(product => product[type] === value);
 };
 
 export const loadSearchProduct = function (query) {
   if (query === '') return state.products;
 
-  return state.products.filter(product => product.name.toLowerCase().startsWith(query));
+  return state.filtered.filter(product => product.name.toLowerCase().startsWith(query));
 };

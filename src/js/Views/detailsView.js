@@ -1,10 +1,9 @@
 import View from './View';
 import icons from 'url:../../icons/icons.svg';
-import homePage from '../../../public/index.html';
-import productPage from 'url:../../../public/pages/products.html';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
+  _productName = document.querySelector('.product__name');
   _errorMessage = "We could'nt find the product. Please try another one!";
 
   constructor() {
@@ -74,25 +73,14 @@ class DetailView extends View {
   }
 
   _generateMarkup() {
+    document.title = this._data.name
+      .split(' ')
+      .map(capital => capital[0].toUpperCase() + capital.slice(1))
+      .join(' ');
+    this._productName.textContent = this._data.name;
+
     return /*html*/ `
       <div class="product__detail">
-        <div class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
-          <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
-            <nav class="flex" aria-label="Breadcrumb">
-              <ul class="flex flex-wrap items-center slash:mx-2 slash:content-['/']">
-                <li class="breadcrumb flex items-center">
-                  <a href="${homePage}" class="font-medium text-zinc-600">Home</a>
-                </li>
-                <li class="breadcrumb flex items-center">
-                  <a href="${productPage}" class="font-medium text-zinc-600">Products</a>
-                </li>
-                <li class="breadcrumb flex items-center">
-                  <span class="font-semibold capitalize text-amber-500">${this._data.name}</span>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
         <div class="mx-auto max-w-lg px-8 py-12 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4 sm:py-24">
           <div class="grid grid-cols-1 gap-12 xl:grid-cols-2">
             <div class="flex flex-col items-start">
