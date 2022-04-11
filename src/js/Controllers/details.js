@@ -10,8 +10,6 @@ const controlProductDetails = async function () {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
-    console.log(params, id);
-
     if (!id) return;
 
     DetailView.renderSpinner();
@@ -23,8 +21,13 @@ const controlProductDetails = async function () {
   }
 };
 
+const controlAddtoCart = function (id) {
+  console.log(`Addded to Cart: ${id}`);
+};
+
 const init = () => {
   DetailView.addHandlerRender(controlProductDetails);
+  DetailView.addHandlerAddtoCart(controlAddtoCart);
 };
 
 init();

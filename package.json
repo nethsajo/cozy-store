@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "main": "index.js",
+  "default": "index.html",
   "scripts": {
-    "start": "parcel public/index.html",
-    "build": "parcel build public/index.html --dist-dir ./build"
+    "start": "parcel public/*.html",
+    "build": "parcel build public/*.html --dist-dir ./build"
   },
   "keywords": [],
   "author": "",

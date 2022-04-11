@@ -17,27 +17,41 @@ const controlProducts = async function () {
   }
 };
 
-const controlFilterPrice = function (value) {
+const controlFilterPrice = function (key, value) {
   try {
-    model.state.filtered = model.loadFilterPrice(value);
+    model.loadFilterProducts(key, value);
+    console.log(model.state);
+
     ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
   }
 };
 
-const controlFilterProductByType = function (type, value) {
+const controlFilterProductCategory = function (key, value) {
   try {
-    model.state.filtered = model.loadFilterProductByType(type, value);
+    model.loadFilterProducts(key, value);
+    console.log(model.state);
     ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
   }
 };
 
-const controlSearchProducts = function (query) {
+const controlFilterProductBrand = function (key, value) {
   try {
-    model.state.filtered = model.loadSearchProduct(query);
+    model.loadFilterProducts(key, value);
+    console.log(model.state);
+    ProductsView.render(model.state.filtered);
+  } catch (error) {
+    ProductsView.renderError();
+  }
+};
+
+const controlSearchProducts = function (key, value) {
+  try {
+    model.loadFilterProducts(key, value);
+    console.log(model.state);
     ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
@@ -47,8 +61,9 @@ const controlSearchProducts = function (query) {
 const init = () => {
   controlProducts();
   FilterView.addHandlerFilterPrice(controlFilterPrice);
-  FilterView.addHandlerFilterCategory(controlFilterProductByType);
-  FilterView.addHandlerFilterBrand(controlFilterProductByType);
+  // FilterView.addHandlerFilterPrice(controlFilterProducts);
+  FilterView.addHandlerFilterCategory(controlFilterProductCategory);
+  FilterView.addHandlerFilterBrand(controlFilterProductBrand);
   FilterView.addHandlerSearch(controlSearchProducts);
 };
 

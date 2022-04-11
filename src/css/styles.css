@@ -119,4 +119,8 @@
   .accordion__heading--active {
     @apply text-amber-500;
   }
+
+  .filter__active {
+    @apply underline underline-offset-[5px];
+  }
 }

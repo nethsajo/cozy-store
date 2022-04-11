@@ -11,6 +11,12 @@ export const state = {
     price: 0,
   },
   filtered: [],
+  filterValues: {
+    category: 'all',
+    brand: 'all',
+    search: '',
+    price: 0,
+  },
 };
 
 export const loadFeaturedProduct = async function () {
@@ -74,7 +80,7 @@ export const loadAllProducts = async function () {
     state.filters.categories = getUniqueValues(data, 'category');
     state.filters.brands = getUniqueValues(data, 'company');
     state.filters.price = getMaxPrice(data);
-    state.filtered = [...state.products];
+    state.filterValues.price = getMaxPrice(data);
     console.log(state);
   } catch (error) {
     console.error(error);
@@ -82,20 +88,64 @@ export const loadAllProducts = async function () {
   }
 };
 
-export const loadFilterPrice = function (value) {
-  if (!value) return state.products;
-
-  return state.filtered.filter(product => product.price <= value);
+const loadFilterProductPrice = function (products, value) {
+  if (!value) return;
+  return products.filter(product => product.price <= value);
 };
 
-export const loadFilterProductByType = function (type, value) {
-  if (value === 'all') return state.products;
+const loadFilterProductCategory = function (products, category) {
+  if (category === 'all') return products;
 
-  return state.filtered.filter(product => product[type] === value);
+  return products.filter(product => product.category === category);
 };
 
-export const loadSearchProduct = function (query) {
-  if (query === '') return state.products;
+const loadFilterProductBrand = function (products, brand) {
+  if (brand === 'all') return products;
 
-  return state.filtered.filter(product => product.name.toLowerCase().startsWith(query));
+  return products.filter(product => product.brand === brand);
+};
+
+const loadFilterProductSearch = function (products, query) {
+  if (query === '') return products;
+
+  return products.filter(product => product.name.toLowerCase().includes(query));
+};
+
+export const loadFilterProducts = function (key, value) {
+  //possible values 1200, 'all', 'all' 'albany'
+  //possible keys 'price', 'category', 'brand', 'search'
+  state.filterValues[key] = value;
+  /*
+    filterValues: {
+      price: 1200,
+      category: 'all',
+      brand: 'all',
+      search: 'albany'
+    }
+  */
+  let filteredResult = [...state.products];
+
+  Object.entries(state.filterValues).forEach(([key, value]) => {
+    if (key === 'price') {
+      filteredResult = loadFilterProductPrice(filteredResult, value);
+      return;
+    }
+
+    if (key === 'category') {
+      filteredResult = loadFilterProductCategory(filteredResult, value);
+      return;
+    }
+
+    if (key === 'brand') {
+      filteredResult = loadFilterProductBrand(filteredResult, value);
+      return;
+    }
+
+    if (key === 'search') {
+      filteredResult = loadFilterProductSearch(filteredResult, value);
+      return;
+    }
+  });
+
+  state.filtered = filteredResult;
 };

@@ -1,6 +1,5 @@
 import View from './View';
 import icons from 'url:../../icons/icons.svg';
-import detailsPage from '../../../public/details.html';
 import { formatPrice } from '../helpers';
 
 class ResultView extends View {
@@ -9,7 +8,7 @@ class ResultView extends View {
   _generateMarkup() {
     return /*html*/ `
       <a
-        href="${detailsPage}&id=${this._data.id}"
+        href="/details.html?id=${this._data.id}"
         class="product__card relative flex flex-col overflow-hidden rounded-lg shadow-customSm transition duration-300 hover:shadow-lg"
       >
         <figure class="relative h-48 sm:h-52 xl:h-44 w-full overflow-hidden xl:w-full">

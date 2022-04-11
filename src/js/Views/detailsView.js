@@ -3,7 +3,6 @@ import icons from 'url:../../icons/icons.svg';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
-  _productName = document.querySelector('.product__name');
   _errorMessage = "We could'nt find the product. Please try another one!";
 
   constructor() {
@@ -16,6 +15,18 @@ class DetailView extends View {
 
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
+  }
+
+  addHandlerAddtoCart(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn__add-to-cart');
+
+      if (!btn) return;
+
+      const { id } = btn.dataset;
+
+      handler(id);
+    });
   }
 
   _addHandlerProductGallery() {
@@ -77,10 +88,26 @@ class DetailView extends View {
       .split(' ')
       .map(capital => capital[0].toUpperCase() + capital.slice(1))
       .join(' ');
-    this._productName.textContent = this._data.name;
 
     return /*html*/ `
       <div class="product__detail">
+        <div class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
+          <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+              <ul class="flex flex-wrap items-center slash:mx-2 slash:content-['/']">
+                <li class="breadcrumb flex items-center">
+                  <a href="./index.html" class="font-medium text-zinc-600">Home</a>
+                </li>
+                <li class="breadcrumb flex items-center">
+                  <a href="./products.html" class="font-medium text-zinc-600">Products</a>
+                </li>
+                <li class="breadcrumb flex items-center">
+                  <span class="product__name font-semibold capitalize text-amber-500">${this._data.name}</span>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
         <div class="mx-auto max-w-lg px-8 py-12 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4 sm:py-24">
           <div class="grid grid-cols-1 gap-12 xl:grid-cols-2">
             <div class="flex flex-col items-start">
@@ -159,7 +186,7 @@ class DetailView extends View {
                   </button>
                 </div>
                 <button
-                  class="rounded-full bg-amber-500 px-4 py-2 text-sm font-medium uppercase tracking-wide text-white transition duration-300 hover:bg-amber-400 sm:text-base" data-id="${
+                  class="btn__add-to-cart rounded-full bg-amber-500 px-4 py-2 text-sm font-medium uppercase tracking-wide text-white transition duration-300 hover:bg-amber-400 sm:text-base" data-id="${
                     this._data.id
                   }"
                 >

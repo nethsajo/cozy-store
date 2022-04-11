@@ -41,17 +41,22 @@ class FilterViews extends View {
 
       priceFilter.value = value;
       priceText.textContent = formatPrice(value);
-      handler(value);
+      handler('price', value);
     });
   }
 
   addHandlerFilterCategory(handler) {
     this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn__category');
+      const btnCategories = document.querySelectorAll('.btn__category');
+      const clicked = e.target.closest('.btn__category');
 
-      if (!btn) return;
+      if (!clicked) return;
 
-      const { category } = btn.dataset;
+      btnCategories.forEach(btn => btn.classList.remove('filter__active'));
+
+      clicked.classList.add('filter__active');
+
+      const { category } = clicked.dataset;
 
       handler('category', category);
     });
@@ -59,11 +64,16 @@ class FilterViews extends View {
 
   addHandlerFilterBrand(handler) {
     this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn__brand');
+      const btnBrands = document.querySelectorAll('.btn__brand');
+      const clicked = e.target.closest('.btn__brand');
 
-      if (!btn) return;
+      if (!clicked) return;
 
-      const { brand } = btn.dataset;
+      btnBrands.forEach(btn => btn.classList.remove('filter__active'));
+
+      clicked.classList.add('filter__active');
+
+      const { brand } = clicked.dataset;
 
       handler('brand', brand);
     });
@@ -75,7 +85,7 @@ class FilterViews extends View {
 
       const query = document.querySelector('.search__input').value;
 
-      handler(query);
+      handler('search', query);
     });
   }
 
@@ -126,7 +136,9 @@ class FilterViews extends View {
 
   _generateProductCategories(category) {
     return /*html*/ `
-      <button class="btn__category font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-category="${category}">
+      <button class="btn__category ${
+        category === 'all' ? 'filter__active' : ''
+      } font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-category="${category}">
         ${category}
       </button>
     `;
@@ -134,7 +146,9 @@ class FilterViews extends View {
 
   _generateProductBrands(brand) {
     return /*html*/ `
-      <button class="btn__brand font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
+      <button class="btn__brand ${
+        brand === 'all' ? 'filter__active' : ''
+      } font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
         ${brand}
       </button>
     `;
