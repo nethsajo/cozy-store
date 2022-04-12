@@ -17,41 +17,9 @@ const controlProducts = async function () {
   }
 };
 
-const controlFilterPrice = function (key, value) {
+const controlFilterProduct = function (key, value) {
   try {
     model.loadFilterProducts(key, value);
-    console.log(model.state);
-
-    ProductsView.render(model.state.filtered);
-  } catch (error) {
-    ProductsView.renderError();
-  }
-};
-
-const controlFilterProductCategory = function (key, value) {
-  try {
-    model.loadFilterProducts(key, value);
-    console.log(model.state);
-    ProductsView.render(model.state.filtered);
-  } catch (error) {
-    ProductsView.renderError();
-  }
-};
-
-const controlFilterProductBrand = function (key, value) {
-  try {
-    model.loadFilterProducts(key, value);
-    console.log(model.state);
-    ProductsView.render(model.state.filtered);
-  } catch (error) {
-    ProductsView.renderError();
-  }
-};
-
-const controlSearchProducts = function (key, value) {
-  try {
-    model.loadFilterProducts(key, value);
-    console.log(model.state);
     ProductsView.render(model.state.filtered);
   } catch (error) {
     ProductsView.renderError();
@@ -60,11 +28,10 @@ const controlSearchProducts = function (key, value) {
 
 const init = () => {
   controlProducts();
-  FilterView.addHandlerFilterPrice(controlFilterPrice);
-  // FilterView.addHandlerFilterPrice(controlFilterProducts);
-  FilterView.addHandlerFilterCategory(controlFilterProductCategory);
-  FilterView.addHandlerFilterBrand(controlFilterProductBrand);
-  FilterView.addHandlerSearch(controlSearchProducts);
+  FilterView.addHandlerFilterPrice(controlFilterProduct);
+  FilterView.addHandlerFilterCategory(controlFilterProduct);
+  FilterView.addHandlerFilterBrand(controlFilterProduct);
+  FilterView.addHandlerSearch(controlFilterProduct);
 };
 
 init();
