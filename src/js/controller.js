@@ -1,5 +1,6 @@
 import * as model from './model';
 import FeaturedView from './Views/featuredView';
+import CartView from './Views/cartView';
 import MenuView from './Views/menuView';
 
 import 'core-js/stable';
@@ -16,8 +17,13 @@ const controlFeaturedProducts = async function () {
   }
 };
 
+const controlCart = function () {
+  CartView.render(model.state.cart);
+};
+
 const init = () => {
   controlFeaturedProducts();
+  CartView.addHandlerRender(controlCart);
 };
 
 init();

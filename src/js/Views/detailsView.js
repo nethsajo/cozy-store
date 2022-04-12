@@ -1,5 +1,6 @@
 import View from './View';
 import icons from 'url:../../icons/icons.svg';
+import { formatPrice } from '../helpers';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
@@ -18,15 +19,22 @@ class DetailView extends View {
   }
 
   addHandlerAddtoCart(handler) {
-    this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn__add-to-cart');
+    this._parentElement.addEventListener('click', this._handlerAddToCart.bind(this, handler));
+  }
 
-      if (!btn) return;
+  _handlerAddToCart(handler, e) {
+    const btn = e.target.closest('.btn__add-to-cart');
 
-      const { id } = btn.dataset;
+    if (!btn) return;
 
-      handler(id);
-    });
+    const { id } = btn.dataset;
+
+    const firstColor =
+      document.querySelector('button.product__color.color__active[data-color]:not([data-color=""i])') ?? null;
+    const color = firstColor.dataset.color;
+    const quantity = document.querySelector('.product__quantity').textContent ?? null;
+
+    handler(id, color, quantity, this._data);
   }
 
   _addHandlerProductGallery() {
@@ -36,7 +44,7 @@ class DetailView extends View {
 
       if (!clicked) return;
 
-      images.forEach(image => image.classList.remove('gallery__img--active'));
+      for (const image of images) image.classList.remove('gallery__img--active');
 
       clicked.classList.add('gallery__img--active');
 
@@ -51,10 +59,10 @@ class DetailView extends View {
 
       if (!clicked) return;
 
-      colors.forEach(color => {
+      for (const color of colors) {
         color.innerHTML = '';
         color.classList.remove('color__active');
-      });
+      }
 
       clicked.classList.add('color__active');
 
@@ -134,7 +142,9 @@ class DetailView extends View {
                   ${this._data.reviews < 1 ? `(No customer review)` : `(${this._data.reviews} customer reviews)`}
                 </span>
               </div>
-              <span class="mb-6 inline-block text-xl font-medium text-amber-500 sm:text-3xl">${this._data.price}</span>
+              <span class="mb-6 inline-block text-xl font-medium text-amber-500 sm:text-3xl">${formatPrice(
+                this._data.price
+              )}</span>
               <p class="product__info mb-10 leading-7 text-neutral-600 xs:text-justify">
                 ${this._data.description}
               </p>
@@ -207,7 +217,9 @@ class DetailView extends View {
       <img
         src="${url}"
         alt="${filename}"
-        class="gallery__images block h-14 cursor-pointer rounded-sm object-cover object-center sm:h-28 lg:h-32 xl:h-20"
+        class="gallery__images ${
+          this._data.images[0].id === id ? 'gallery__img--active' : ''
+        } block h-14 cursor-pointer rounded-sm object-cover object-center sm:h-28 lg:h-32 xl:h-20"
         data-id="${id}"
       />
     `;
@@ -215,7 +227,16 @@ class DetailView extends View {
 
   _generateProductColors(color) {
     return /*html*/ `
-      <button class="product__color flex h-5 w-5 items-center justify-center rounded-full text-white" style="background-color: ${color}" data-color="${color}">
+      <button class="product__color ${
+        this._data.colors[0] === color ? 'color__active' : ''
+      } flex h-5 w-5 items-center justify-center rounded-full text-white" style="background-color: ${color}" data-color="${color}">
+        ${
+          this._data.colors[0] === color
+            ? `<svg class="h-4 w-4 fill-current">
+                <use xlink:href="${icons}#icon-check"></use>
+              </svg>`
+            : ''
+        }
       </button>
     `;
   }

@@ -17,6 +17,7 @@ export const state = {
     search: '',
     price: 0,
   },
+  cart: [],
 };
 
 export const loadFeaturedProduct = async function () {
@@ -49,7 +50,7 @@ export const loadSingleProduct = async function (id) {
       brand: data.company,
       category: data.category,
       images: data.images,
-      price: formatPrice(data.price),
+      price: data.price,
       description: data.description,
       colors: data.colors,
       ratings: data.stars,
@@ -149,3 +150,43 @@ export const loadFilterProducts = function (key, value) {
 
   state.filtered = filteredResult;
 };
+
+export const addToCart = function (id, color, quantity, product) {
+  const isInCart = state.cart.find(index => index.id === id + color);
+
+  if (isInCart) {
+    state.cart.map(item => {
+      if (item.id === id + color) {
+        let newQuantity = item.quantity + Number(quantity);
+        if (newQuantity > item.max) newQuantity = item.max;
+        item.quantity = newQuantity;
+        storeCart();
+      }
+    });
+  } else {
+    const newItem = {
+      id: id + color,
+      name: product.name,
+      price: product.price,
+      image: product.images[0].url,
+      color,
+      quantity: +quantity,
+      max: product.stocks,
+    };
+
+    state.cart.push(newItem);
+    storeCart();
+  }
+};
+
+const storeCart = function () {
+  localStorage.setItem('cart', JSON.stringify(state.cart));
+};
+
+const init = function () {
+  const storage = localStorage.getItem('cart');
+
+  if (storage) state.cart = JSON.parse(storage);
+};
+
+init();
