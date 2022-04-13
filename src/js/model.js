@@ -179,6 +179,22 @@ export const addToCart = function (id, color, quantity, product) {
   }
 };
 
+export const updateQuantity = function (quantity, id) {
+  const isInCart = state.cart.find(index => index.id === id);
+
+  if (isInCart) {
+    state.cart.map(item => {
+      if (item.id === id) {
+        //if the current quantity is greater than the items stocks (max)
+        //set the value of quantity to max
+        if (quantity > item.max) quantity = item.max;
+        item.quantity = quantity;
+        storeCart();
+      }
+    });
+  }
+};
+
 const storeCart = function () {
   localStorage.setItem('cart', JSON.stringify(state.cart));
 };

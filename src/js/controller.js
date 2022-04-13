@@ -21,9 +21,20 @@ const controlCart = function () {
   CartView.render(model.state.cart);
 };
 
+const controlProductQuantity = function (quantity, id) {
+  model.updateQuantity(quantity, id);
+  CartView.update(model.state.cart);
+};
+
+const controlProductRemove = function (id) {
+  console.log(id);
+};
+
 const init = () => {
   controlFeaturedProducts();
   CartView.addHandlerRender(controlCart);
+  CartView.addHandlerUpdateQuantity(controlProductQuantity);
+  CartView.addHandlerProductRemove(controlProductRemove);
 };
 
 init();
