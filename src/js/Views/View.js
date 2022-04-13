@@ -75,7 +75,7 @@ export default class View {
 
   renderError(message = this._errorMessage) {
     const markup = /*html*/ `
-      <div class="flex flex-col items-center justify-center gap-4 min-h-[inherit]">
+      <div class="flex flex-col items-center justify-center gap-4 min-h-[inherit] px-6">
         <svg class="h-6 w-6 sm:h-10 sm:w-10 fill-red-600">
           <use xlink:href="${icons}#icon-warning"></use>
         </svg>

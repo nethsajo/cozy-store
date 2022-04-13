@@ -49,7 +49,7 @@
   }
 
   .sidepanel {
-    @apply absolute top-0  z-10 h-full w-[70vw] bg-white sm:w-[35%];
+    @apply absolute top-0 z-10 h-screen w-[70vw] bg-white sm:w-[35%];
   }
 
   .product__cols {
@@ -84,16 +84,19 @@
     animation-delay: -0.5s;
   }
 
-  .gallery::-webkit-scrollbar {
+  .gallery::-webkit-scrollbar,
+  .cart__items::-webkit-scrollbar {
     @apply h-2 w-2;
   }
 
-  .gallery::-webkit-scrollbar-track {
-    @apply rounded-xl bg-neutral-200;
+  .gallery::-webkit-scrollbar-track,
+  .cart__items::-webkit-scrollbar-track {
+    @apply rounded-xl bg-neutral-100;
   }
 
-  .gallery::-webkit-scrollbar-thumb {
-    @apply rounded-xl bg-neutral-400;
+  .gallery::-webkit-scrollbar-thumb,
+  .cart__items::-webkit-scrollbar-thumb {
+    @apply rounded-xl bg-neutral-300;
   }
 
   .gallery__img--active {

@@ -4,7 +4,8 @@ import { formatPrice } from '../helpers';
 
 class CartView extends View {
   _parentElement = document.querySelector('.cart__content');
-  _errorMessage = 'No items in your cart. Find a product and add it!';
+  _cartCount = document.querySelector('.cart__count');
+  _errorMessage = 'No items in your cart. Find a product and checkout it!';
 
   addHandlerRender(handler) {
     window.addEventListener('load', function (e) {
@@ -44,12 +45,20 @@ class CartView extends View {
       .map(item => item.price * item.quantity)
       .reduce((accumulator, current) => (accumulator += current), 0);
 
-    return `
-      <div class="cart__items">
+    const cartItemsTotal = this._data.reduce((accumulator, current) => {
+      return (accumulator += current.quantity);
+    }, 0);
+
+    this._cartCount.textContent = cartItemsTotal;
+
+    return /*html*/ `
+      <ul class="cart__items overflow-auto rtl h-[58vh] ml-0.5">
         ${this._data.map(item => this._generateCartItem(item)).join('')}
-      </div>
-      <div class="cart__total mt-16 px-6">
-        <p class="font-medium text-right text-xl">Total: ${formatPrice(cartTotal)}</p>
+      </ul>
+      <div class="cart__total mt-12 px-6">
+        <h2 class="font-medium text-right text-lg text-neutral-600">
+          Total: <span class="font-bold">${formatPrice(cartTotal)}</span>
+        </h2>
       </div>
     `;
   }
@@ -58,13 +67,13 @@ class CartView extends View {
     const { id, name, price, image, color, quantity } = item;
 
     return /*html*/ `
-      <article class="border-b border-neutral-100 last:border-0">
-        <a href="/details.html?id=${id.split('#')[0]}" class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col">
+      <li class="border-b border-neutral-100 last:border-0">
+        <a href="/details.html?id=${id.split('#')[0]}" class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col ltr">
           <figure class="h-16 flex-[0_0_64px] xs:h-32 xs:flex-none rounded-sm overflow-hidden">
             <img src="${image}" alt="${name}" class="w-full h-full object-cover object-center">
           </figure>
           <div class="ml-4 flex-1 flex overflow-hidden xs:ml-0 xs:mt-3">
-            <div class="cart__details">
+            <div class="cart__details flex flex-col items-start">
               <span
               class="block max-w-xs leading-none mb-2 overflow-hidden text-ellipsis whitespace-nowrap font-semibold uppercase tracking-wide text-neutral-700">
                 ${name}
@@ -78,9 +87,9 @@ class CartView extends View {
                   <span class="h-3 w-3 rounded-full" style="background-color: ${color}"></span>
                 </div>
               </div>
-              <div class="btn__remove-product text-xs uppercase font-medium text-red-500 transition duration-300 hover:text-red-600" data-id="${id}">
+              <span class="btn__remove-product text-xs uppercase font-medium text-red-500 transition duration-300 hover:text-red-600" data-id="${id}">
                 Remove
-              </div>
+              </span>
             </div>
             <div class="ml-auto">
               <div class="flex flex-col items-center gap-0.5">
@@ -103,7 +112,7 @@ class CartView extends View {
             </div>
           </div>
         </a>
-      </article>
+      </li>
     `;
   }
 }

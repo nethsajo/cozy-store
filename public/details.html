@@ -59,18 +59,20 @@
             <svg class="h-6 w-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge top-0 -right-2">1</span>
+            <span class="badge cart__count top-0 -right-2">1</span>
           </button>
           <div class="cart__container overlay translate-x-full">
-            <aside class="sidepanel right-0 w-full overflow-y-auto py-20 sm:w-2/4 lg:w-[30%]">
-              <button class="btn__cart-close absolute left-4 top-6 flex h-8 w-8 items-center justify-center">
-                <svg class="h-full w-full fill-current">
-                  <use xlink:href="../src/icons/icons.svg#icon-close"></use>
-                </svg>
-              </button>
-              <h3 class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600">Cart Summary</h3>
-              <div class="cart__content flex flex-col justify-between">
-                <!-- CART CONTENT WILL GO HERE... -->
+            <aside class="sidepanel right-0 h-screen w-full py-9 sm:w-2/4 lg:w-[30%]">
+              <div class="flex h-full flex-col">
+                <button class="btn__cart-close ml-6 mb-8 flex h-8 w-8 items-center justify-center">
+                  <svg class="h-full w-full fill-current">
+                    <use xlink:href="../src/icons/icons.svg#icon-close"></use>
+                  </svg>
+                </button>
+                <h3 class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600">Cart Summary</h3>
+                <div class="cart__content flex h-full flex-col justify-between">
+                  <!-- CART CONTENT WILL GO HERE... -->
+                </div>
               </div>
             </aside>
           </div>

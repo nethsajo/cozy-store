@@ -38,8 +38,16 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-animation-delay'),
-    plugin(function ({ addVariant }) {
+    plugin(function ({ addVariant, addUtilities }) {
       addVariant('slash', '.breadcrumb:not(:first-child):before');
+      addUtilities({
+        '.rtl': {
+          direction: 'rtl',
+        },
+        '.ltr': {
+          direction: 'ltr',
+        },
+      });
     }),
   ],
 };

@@ -3,6 +3,8 @@ import ProductsView from '../Views/productsView';
 import FilterView from '../Views/filterView';
 import MenuView from '../Views/menuView';
 
+import { controlCart, controlProductQuantity, controlProductRemove } from '../controller';
+
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 

@@ -3,6 +3,8 @@ import DetailView from '../Views/detailsView';
 import CartView from '../Views/cartView';
 import MenuView from '../Views/menuView';
 
+import { controlCart, controlProductQuantity, controlProductRemove } from '../controller';
+
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -24,18 +26,12 @@ const controlProductDetails = async function () {
 
 const controlAddtoCart = function (id, color, quantity, product) {
   model.addToCart(id, color, quantity, product);
-  console.log(model.state.cart);
-  CartView.render(model.state.cart);
-};
-
-const controlCart = function () {
   CartView.render(model.state.cart);
 };
 
 const init = () => {
   DetailView.addHandlerRender(controlProductDetails);
   DetailView.addHandlerAddtoCart(controlAddtoCart);
-  CartView.addHandlerRender(controlCart);
 };
 
 init();

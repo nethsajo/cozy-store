@@ -6,7 +6,7 @@ import MenuView from './Views/menuView';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-const controlFeaturedProducts = async function () {
+export const controlFeaturedProducts = async function () {
   try {
     FeaturedView.renderSpinner();
     await model.loadFeaturedProduct();
@@ -17,22 +17,21 @@ const controlFeaturedProducts = async function () {
   }
 };
 
-const controlCart = function () {
+export const controlCart = function () {
   CartView.render(model.state.cart);
 };
 
-const controlProductQuantity = function (quantity, id) {
+export const controlProductQuantity = function (quantity, id) {
   model.updateQuantity(quantity, id);
   CartView.update(model.state.cart);
 };
 
-const controlProductRemove = function (id) {
+export const controlProductRemove = function (id) {
   model.removeCart(id);
   CartView.render(model.state.cart);
 };
 
 const init = () => {
-  controlFeaturedProducts();
   CartView.addHandlerRender(controlCart);
   CartView.addHandlerUpdateQuantity(controlProductQuantity);
   CartView.addHandlerProductRemove(controlProductRemove);
