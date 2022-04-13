@@ -4,6 +4,7 @@ import { formatPrice } from '../helpers';
 
 class CartView extends View {
   _parentElement = document.querySelector('.cart__content');
+  _errorMessage = 'No items in your cart. Find a product and add it!';
 
   addHandlerRender(handler) {
     window.addEventListener('load', function (e) {
@@ -59,11 +60,11 @@ class CartView extends View {
     return /*html*/ `
       <article class="border-b border-neutral-100 last:border-0">
         <a href="/details.html?id=${id.split('#')[0]}" class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col">
-          <figure class="h-16 flex-[0_0_64px] xs:h-32 xs:flex-none rounded-md">
+          <figure class="h-16 flex-[0_0_64px] xs:h-32 xs:flex-none rounded-sm overflow-hidden">
             <img src="${image}" alt="${name}" class="w-full h-full object-cover object-center">
           </figure>
           <div class="ml-4 flex-1 flex overflow-hidden xs:ml-0 xs:mt-3">
-            <div>
+            <div class="cart__details">
               <span
               class="block max-w-xs leading-none mb-2 overflow-hidden text-ellipsis whitespace-nowrap font-semibold uppercase tracking-wide text-neutral-700">
                 ${name}
@@ -83,7 +84,7 @@ class CartView extends View {
             </div>
             <div class="ml-auto">
               <div class="flex flex-col items-center gap-0.5">
-                <button class="btn__control btn__update-quantity h-6 w-6" data-quantity="${
+                <button class="btn__control btn__update-quantity bg-transparent h-6 w-6" data-quantity="${
                   quantity + 1
                 }" data-id="${id}">
                   <svg class="h-full w-full fill-current">
@@ -91,7 +92,7 @@ class CartView extends View {
                   </svg>
                 </button>
                 <span class="cart__quantity text-base font-semibold text-neutral-600">${quantity}</span>
-                <button class="btn__control btn__update-quantity h-6 w-6" data-quantity="${
+                <button class="btn__control btn__update-quantity bg-transparent h-6 w-6" data-quantity="${
                   quantity - 1
                 }" data-id="${id}">
                   <svg class="h-full w-full fill-current">

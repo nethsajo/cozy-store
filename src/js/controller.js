@@ -27,7 +27,8 @@ const controlProductQuantity = function (quantity, id) {
 };
 
 const controlProductRemove = function (id) {
-  console.log(id);
+  model.removeCart(id);
+  CartView.render(model.state.cart);
 };
 
 const init = () => {

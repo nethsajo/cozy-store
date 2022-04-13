@@ -195,6 +195,16 @@ export const updateQuantity = function (quantity, id) {
   }
 };
 
+export const removeCart = function (id) {
+  const index = state.cart.findIndex(item => item.id === id);
+
+  state.cart.splice(index, 1);
+
+  console.log(state.cart);
+
+  storeCart();
+};
+
 const storeCart = function () {
   localStorage.setItem('cart', JSON.stringify(state.cart));
 };
