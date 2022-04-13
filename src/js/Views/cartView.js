@@ -75,10 +75,10 @@ class CartView extends View {
           <div class="ml-4 flex-1 flex overflow-hidden xs:ml-0 xs:mt-3">
             <div class="cart__details flex flex-col items-start">
               <span
-              class="block max-w-xs leading-none mb-2 overflow-hidden text-ellipsis whitespace-nowrap font-semibold uppercase tracking-wide text-neutral-700">
+              class="block max-w-xs leading-none mb-1 overflow-hidden text-ellipsis whitespace-nowrap font-semibold uppercase tracking-wide text-neutral-700">
                 ${name}
               </span>
-              <div class="my-2 grid grid-cols-[80px_auto] text-xs space-x-4">
+              <div class="my-2 grid grid-cols-[80px_auto] text-sm space-x-4">
                 <div class="flex items-center">
                   <span class="text-neutral-600 font-semibold">${formatPrice(price * quantity)}</span>
                 </div>
