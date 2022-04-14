@@ -12,8 +12,8 @@ const controlProducts = async function () {
   try {
     ProductsView.renderSpinner();
     await model.loadAllProducts();
-    ProductsView.render(model.state.products);
     FilterView.render(model.state.filters);
+    ProductsView.render(model.state.products);
   } catch (error) {
     console.error(`${error} 💥💥💥`);
   }
@@ -28,12 +28,20 @@ const controlFilterProduct = function (key, value) {
   }
 };
 
+const controlClearFilter = function (key) {
+  model.loadFilterProducts(key);
+  FilterView.render(model.state.filters);
+  ProductsView.render(model.state.products);
+};
+
 const init = () => {
   controlProducts();
   FilterView.addHandlerFilterPrice(controlFilterProduct);
   FilterView.addHandlerFilterCategory(controlFilterProduct);
   FilterView.addHandlerFilterBrand(controlFilterProduct);
+  FilterView.addHandlerFilterColor(controlFilterProduct);
   FilterView.addHandlerSearch(controlFilterProduct);
+  FilterView.addHandlerClearFilters(controlClearFilter);
 };
 
 init();

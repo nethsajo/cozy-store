@@ -108,11 +108,11 @@
   }
 
   .accordion__content {
-    @apply flex h-0 flex-col items-start space-y-4 overflow-hidden border-b pb-4 opacity-0 transition duration-300;
+    @apply flex max-h-0 flex-col items-start space-y-3 overflow-hidden border-b text-sm opacity-0 transition duration-300;
   }
 
   .accordion__content--active {
-    @apply h-auto opacity-100;
+    @apply max-h-full opacity-100;
   }
 
   .accordion__heading {
@@ -125,5 +125,9 @@
 
   .filter__active {
     @apply underline underline-offset-[5px];
+  }
+
+  .filter__color--active {
+    @apply ring-1 ring-gray-600 ring-offset-2;
   }
 }

@@ -8,14 +8,16 @@ export const state = {
   filters: {
     categories: [],
     brands: [],
+    colors: [],
     price: 0,
   },
   filtered: [],
   filterValues: {
     category: 'all',
     brand: 'all',
-    search: '',
+    color: 'all',
     price: 0,
+    search: '',
   },
   cart: [],
 };
@@ -58,6 +60,7 @@ export const loadSingleProduct = async function (id) {
       stocks: data.stock,
       shipping: data.shipping,
     };
+    console.log(state.product);
   } catch (error) {
     console.error(error);
     throw error;
@@ -74,12 +77,14 @@ export const loadAllProducts = async function () {
         image: product.image,
         brand: product.company,
         category: product.category,
+        colors: product.colors,
         price: product.price,
       };
     });
 
     state.filters.categories = getUniqueValues(data, 'category');
     state.filters.brands = getUniqueValues(data, 'company');
+    state.filters.colors = getUniqueValues(data, 'colors');
     state.filters.price = getMaxPrice(data);
     state.filterValues.price = getMaxPrice(data);
     console.log(state);
@@ -106,21 +111,32 @@ const loadFilterProductBrand = function (products, brand) {
   return products.filter(product => product.brand === brand);
 };
 
+const loadFilterProductColor = function (products, color) {
+  if (color === 'all') return products;
+
+  const result = products.filter(product => {
+    return product.colors.find(c => c === color);
+  });
+
+  return result;
+};
+
 const loadFilterProductSearch = function (products, query) {
   if (query === '') return products;
 
   return products.filter(product => product.name.toLowerCase().includes(query));
 };
 
-export const loadFilterProducts = function (key, value) {
-  //possible values 1200, 'all', 'all' 'albany'
-  //possible keys 'price', 'category', 'brand', 'search'
+export const loadFilterProducts = function (key, value = '') {
+  //possible values 1200, 'all', 'all', 'all', 'albany'
+  //possible keys 'price', 'category', 'brand', '#000', 'search'
   state.filterValues[key] = value;
   /*
     filterValues: {
       price: 1200,
       category: 'all',
       brand: 'all',
+      color: 'all',
       search: 'albany'
     }
   */
@@ -142,9 +158,24 @@ export const loadFilterProducts = function (key, value) {
       return;
     }
 
+    if (key === 'color') {
+      filteredResult = loadFilterProductColor(filteredResult, value);
+      return;
+    }
+
     if (key === 'search') {
       filteredResult = loadFilterProductSearch(filteredResult, value);
       return;
+    }
+
+    if (key === 'clear') {
+      return (state.filterValues = {
+        category: 'all',
+        brand: 'all',
+        color: 'all',
+        search: '',
+        price: state.filters.price,
+      });
     }
   });
 
@@ -158,7 +189,9 @@ export const addToCart = function (id, color, quantity, product) {
     state.cart.map(item => {
       if (item.id === id + color) {
         let newQuantity = item.quantity + Number(quantity);
-        if (newQuantity > item.max) newQuantity = item.max;
+        if (newQuantity > item.max) {
+          newQuantity = item.max;
+        }
         item.quantity = newQuantity;
         storeCart();
       }
@@ -185,9 +218,12 @@ export const updateQuantity = function (quantity, id) {
   if (isInCart) {
     state.cart.map(item => {
       if (item.id === id) {
-        //if the current quantity is greater than the items stocks (max)
+        //if the added quantity is greater than the items stocks (max)
         //set the value of quantity to max
-        if (quantity > item.max) quantity = item.max;
+        if (quantity > item.max) {
+          quantity = item.max;
+        }
+
         item.quantity = quantity;
         storeCart();
       }

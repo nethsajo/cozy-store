@@ -1,6 +1,7 @@
 import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
+import * as model from '../helpers';
 
 class FilterViews extends View {
   _parentElement = document.querySelector('.filters');
@@ -79,6 +80,25 @@ class FilterViews extends View {
     });
   }
 
+  addHandlerFilterColor(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const colors = document.querySelectorAll('.btn__color');
+      const clicked = e.target.closest('.btn__color');
+
+      if (!clicked) return;
+
+      for (const color of colors) {
+        color.classList.remove('filter__color--active');
+      }
+
+      clicked.classList.add('filter__color--active');
+
+      const { color } = clicked.dataset;
+
+      handler('color', color);
+    });
+  }
+
   addHandlerSearch(handler) {
     this._searchForm.addEventListener('keyup', function (e) {
       e.preventDefault();
@@ -89,9 +109,19 @@ class FilterViews extends View {
     });
   }
 
+  addHandlerClearFilters(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn__clear');
+
+      if (!btn) return;
+
+      handler('clear');
+    });
+  }
+
   _generateMarkup() {
     return /*html*/ `
-      <aside class="space-y-8">
+      <aside class="space-y-6">
         <div class="accordion">
           <div class="accordion__heading accordion__heading--active">
             <h4 class="font-bold tracking-wide">Category</h4>
@@ -114,6 +144,12 @@ class FilterViews extends View {
             ${this._data.brands.map(brand => this._generateProductBrands(brand)).join('')}
           </div>
         </div>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h4 class="font-bold tracking-wide text-neutral-600">Colors</h4>
+          <div class="flex items-center space-x-3">
+            ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
+          </div>
+        </div>
         <div class="space-y-2">
           <div class="flex items-center justify-between">
             <h4 class="font-bold tracking-wide text-neutral-600">Price</h4>
@@ -130,6 +166,11 @@ class FilterViews extends View {
             />
           </form>
         </div>
+        <button
+          class="btn__clear rounded-sm bg-red-500 px-2 py-1 text-sm font-medium uppercase text-white transition duration-300 hover:bg-red-600"
+        >
+          Clear Filters
+        </button>
       </aside>
     `;
   }
@@ -138,7 +179,7 @@ class FilterViews extends View {
     return /*html*/ `
       <button class="btn__category ${
         category === 'all' ? 'filter__active' : ''
-      } font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-category="${category}">
+      } font-medium text-neutral-600 capitalize transition duration-300 last:pb-4 hover:text-amber-400" data-category="${category}">
         ${category}
       </button>
     `;
@@ -148,9 +189,25 @@ class FilterViews extends View {
     return /*html*/ `
       <button class="btn__brand ${
         brand === 'all' ? 'filter__active' : ''
-      } font-medium text-neutral-600 capitalize transition duration-300 hover:text-amber-400" data-brand="${brand}">
+      } font-medium text-neutral-600 capitalize transition duration-300 last:pb-4 hover:text-amber-400" data-brand="${brand}">
         ${brand}
       </button>
+    `;
+  }
+
+  _generateProductColors(color) {
+    return /*html*/ `
+      ${
+        color === 'all'
+          ? `<button class="btn__color h-4 w-4 ${
+              color === 'all' ? 'filter__color--active' : ''
+            }  text-neutral-600 rounded-full transition duration-300" data-color="all">
+              <svg class="ml-auto h-full w-full fill-current">
+                <use xlink:href="${icons}#icon-all-color"></use>
+              </svg>
+            </button>`
+          : `<button class="btn__color h-4 w-4 rounded-full transition duration-300" style="background-color: ${color}" data-color="${color}"></button>`
+      }
     `;
   }
 }
