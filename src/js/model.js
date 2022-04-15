@@ -5,21 +5,22 @@ export const state = {
   product: {},
   featured: [],
   products: [],
+  filtered: [],
+  cart: [],
   filters: {
     categories: [],
     brands: [],
     colors: [],
     price: 0,
   },
-  filtered: [],
+  sort: 'price-low-high',
   filterValues: {
     category: 'all',
     brand: 'all',
     color: 'all',
-    price: 0,
     search: '',
+    price: 0,
   },
-  cart: [],
 };
 
 export const loadFeaturedProduct = async function () {
@@ -70,22 +71,27 @@ export const loadSingleProduct = async function (id) {
 export const loadAllProducts = async function () {
   try {
     const data = await getJSON(`${API_URL}`);
-    state.products = data.map(product => {
-      return {
-        id: product.id,
-        name: product.name,
-        image: product.image,
-        brand: product.company,
-        category: product.category,
-        colors: product.colors,
-        price: product.price,
-      };
-    });
+    state.products = data
+      .sort((x, y) => x.price - y.price)
+      .map(product => {
+        return {
+          id: product.id,
+          name: product.name,
+          image: product.image,
+          brand: product.company,
+          category: product.category,
+          colors: product.colors,
+          price: product.price,
+        };
+      });
 
-    state.filters.categories = getUniqueValues(data, 'category');
-    state.filters.brands = getUniqueValues(data, 'company');
-    state.filters.colors = getUniqueValues(data, 'colors');
-    state.filters.price = getMaxPrice(data);
+    state.filters = {
+      categories: getUniqueValues(data, 'category'),
+      brands: getUniqueValues(data, 'company'),
+      colors: getUniqueValues(data, 'colors'),
+      price: getMaxPrice(data),
+    };
+
     state.filterValues.price = getMaxPrice(data);
     console.log(state);
   } catch (error) {
@@ -127,10 +133,28 @@ const loadFilterProductSearch = function (products, query) {
   return products.filter(product => product.name.toLowerCase().includes(query));
 };
 
+const loadSortProducts = function (products, sort) {
+  //price-low-high, price - high - low; name - a - z; name - z - a;
+  if (sort === 'price-low-high') {
+    return products.sort((x, y) => x.price - y.price);
+  }
+
+  if (sort === 'price-high-low') {
+    return products.sort((x, y) => y.price - x.price);
+  }
+
+  if (sort === 'name-a-z') {
+    return products.sort((x, y) => x.name.localeCompare(y.name));
+  }
+
+  if (sort === 'name-z-a') {
+    return products.sort((x, y) => y.name.localeCompare(x.name));
+  }
+};
+
 export const loadFilterProducts = function (key, value = '') {
   //possible values 1200, 'all', 'all', 'all', 'albany'
   //possible keys 'price', 'category', 'brand', '#000', 'search'
-  state.filterValues[key] = value;
   /*
     filterValues: {
       price: 1200,
@@ -140,12 +164,13 @@ export const loadFilterProducts = function (key, value = '') {
       search: 'albany'
     }
   */
+  state.filterValues[key] = value;
+
   let filteredResult = [...state.products];
 
   Object.entries(state.filterValues).forEach(([key, value]) => {
-    if (key === 'price') {
-      filteredResult = loadFilterProductPrice(filteredResult, value);
-      return;
+    if (key === 'sort') {
+      filteredResult = loadSortProducts(filteredResult, value);
     }
 
     if (key === 'category') {
@@ -155,6 +180,11 @@ export const loadFilterProducts = function (key, value = '') {
 
     if (key === 'brand') {
       filteredResult = loadFilterProductBrand(filteredResult, value);
+      return;
+    }
+
+    if (key === 'price') {
+      filteredResult = loadFilterProductPrice(filteredResult, value);
       return;
     }
 
@@ -170,10 +200,10 @@ export const loadFilterProducts = function (key, value = '') {
 
     if (key === 'clear') {
       return (state.filterValues = {
+        search: '',
         category: 'all',
         brand: 'all',
         color: 'all',
-        search: '',
         price: state.filters.price,
       });
     }

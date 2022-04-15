@@ -1,7 +1,6 @@
 import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
-import * as model from '../helpers';
 
 class FilterViews extends View {
   _parentElement = document.querySelector('.filters');
@@ -201,8 +200,8 @@ class FilterViews extends View {
         color === 'all'
           ? `<button class="btn__color h-4 w-4 ${
               color === 'all' ? 'filter__color--active' : ''
-            }  text-neutral-600 rounded-full transition duration-300" data-color="all">
-              <svg class="ml-auto h-full w-full fill-current">
+            } rounded-full transition duration-300" data-color="all">
+              <svg class="h-full w-full">
                 <use xlink:href="${icons}#icon-all-color"></use>
               </svg>
             </button>`

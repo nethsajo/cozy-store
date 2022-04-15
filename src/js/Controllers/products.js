@@ -42,6 +42,7 @@ const init = () => {
   FilterView.addHandlerFilterColor(controlFilterProduct);
   FilterView.addHandlerSearch(controlFilterProduct);
   FilterView.addHandlerClearFilters(controlClearFilter);
+  ProductsView.addHandlerSort(controlFilterProduct);
 };
 
 init();
