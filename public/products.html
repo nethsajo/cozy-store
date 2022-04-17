@@ -31,13 +31,22 @@
                 </svg>
               </button>
               <ul class="flex h-full flex-col space-y-8 pt-24">
-                <li class="px-8">
+                <li class="flex items-center space-x-2 px-8">
+                  <svg class="h-6 w-6 fill-current">
+                    <use xlink:href="../src/icons/icons.svg#icon-home"></use>
+                  </svg>
                   <a href="./index.html" class="link text-xl">Home</a>
                 </li>
-                <li class="px-8">
+                <li class="flex items-center space-x-2 px-8">
+                  <svg class="h-6 w-6 fill-current">
+                    <use xlink:href="../src/icons/icons.svg#icon-shopping-bag"></use>
+                  </svg>
                   <a href="./products.html" class="link text-xl">Products</a>
                 </li>
-                <li class="px-8">
+                <li class="flex items-center space-x-2 px-8">
+                  <svg class="h-6 w-6 fill-current">
+                    <use xlink:href="../src/icons/icons.svg#icon-info"></use>
+                  </svg>
                   <a href="#" class="link text-xl">About</a>
                 </li>
               </ul>
@@ -111,8 +120,32 @@
               <!-- FILTERS WILL GO HERE... -->
             </div>
           </div>
-          <div class="products">
-            <!-- PRODUCTS WILL GO HERE... -->
+          <div>
+            <div class="mb-12 grid grid-cols-1 items-center gap-6 lg:grid-cols-[auto_1fr_auto]">
+              <div class="text-lg uppercase tracking-wider text-gray-600">
+                <span class="products__count font-semibold text-amber-500">0</span>
+                <span class="products__count--text font-medium">product found</span>
+              </div>
+              <hr />
+              <div class="flex items-center">
+                <p class="mr-2 font-medium capitalize text-gray-600">Sort by:</p>
+                <form class="sort__form">
+                  <select
+                    name="sort"
+                    id="sort"
+                    class="sort rounded-md border border-neutral-100 px-4 py-2 text-sm capitalize text-neutral-700 outline-none focus:border-amber-300"
+                  >
+                    <option value="price-low-high">price: (low &mdash; high)</option>
+                    <option value="price-high-low">price: (high &mdash; low)</option>
+                    <option value="name-a-z">name (a - z)</option>
+                    <option value="name-z-a">name (z - a)</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="products">
+              <!-- PRODUCTS WILL GO HERE... -->
+            </div>
           </div>
         </div>
       </section>

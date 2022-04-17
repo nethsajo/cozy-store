@@ -49,7 +49,7 @@
   }
 
   .sidepanel {
-    @apply absolute top-0 z-10 h-screen w-[70vw] bg-white sm:w-[35%];
+    @apply absolute top-0 z-10 h-full w-[80vw] bg-white sm:w-[35%] xs:w-full;
   }
 
   .product__cols {
@@ -128,6 +128,6 @@
   }
 
   .filter__color--active {
-    @apply ring-1 ring-gray-500 ring-offset-1;
+    @apply ring-1 ring-gray-500 ring-offset-2;
   }
 }
