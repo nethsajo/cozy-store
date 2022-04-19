@@ -45,9 +45,10 @@ class CartView extends View {
       .map(item => item.price * item.quantity)
       .reduce((accumulator, current) => (accumulator += current), 0);
 
-    const cartItemsTotal = this._data.reduce((accumulator, current) => {
-      return (accumulator += current.quantity);
-    }, 0);
+    const cartItemsTotal =
+      this._data.reduce((accumulator, current) => {
+        return (accumulator += current.quantity);
+      }, 0) ?? 0;
 
     this._cartCount.textContent = cartItemsTotal;
 

@@ -200,7 +200,7 @@ class FilterViews extends View {
     return /*html*/ `
       ${
         color === 'all'
-          ? `<button class="btn__color ${
+          ? `<button class="btn__color font-medium text-neutral-600 ${
               color === 'all' ? 'filter__color-all--active' : ''
             } transition duration-300" data-color="all">
               All
