@@ -47,7 +47,7 @@
                   <svg class="h-6 w-6 fill-current">
                     <use xlink:href="../src/icons/icons.svg#icon-info"></use>
                   </svg>
-                  <a href="#" class="link text-xl">About</a>
+                  <a href="./about.html" class="link text-xl">About</a>
                 </li>
               </ul>
             </div>
@@ -56,7 +56,7 @@
         <ul class="hidden flex-1 space-x-10 lg:flex">
           <li><a href="./index.html" class="link">Home</a></li>
           <li><a href="./products.html" class="link">Products</a></li>
-          <li><a href="#" class="link">About</a></li>
+          <li><a href="./about.html" class="link">About</a></li>
         </ul>
         <!-- LOGO -->
         <div class="flex-none px-6">
@@ -68,7 +68,7 @@
             <svg class="h-6 w-6 fill-current">
               <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
             </svg>
-            <span class="badge cart__count top-0 -right-2"></span>
+            <span class="badge cart__count top-0 -right-2">0</span>
           </button>
           <div class="cart__container overlay translate-x-full">
             <aside class="sidepanel right-0 h-screen w-full py-9 sm:w-2/4 lg:w-[30%]">
@@ -88,7 +88,7 @@
         </div>
       </nav>
     </header>
-    <main class="main">
+    <main class="main min-h-[calc(100vh-5rem)] sm:min-h-[calc(100vh-8rem)]">
       <section class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
         <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
           <nav class="flex" aria-label="Breadcrumb">
@@ -104,7 +104,7 @@
         </div>
       </section>
       <section
-        class="mx-auto min-h-[calc(100vh-5rem)] max-w-lg px-8 py-24 sm:min-h-[calc(100vh-8rem)] sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4 xs:pt-12"
+        class="mx-auto min-h-[inherit] max-w-lg px-8 py-12 sm:max-w-2xl sm:py-24 lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4"
       >
         <div class="relative grid min-h-[inherit] grid-cols-1 items-start gap-12 sm:grid-cols-[auto_1fr]">
           <div class="relative h-auto sm:sticky sm:top-4">

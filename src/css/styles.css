@@ -123,7 +123,8 @@
     @apply text-amber-500;
   }
 
-  .filter__active {
+  .filter__active,
+  .filter__color-all--active {
     @apply underline underline-offset-[5px];
   }
 

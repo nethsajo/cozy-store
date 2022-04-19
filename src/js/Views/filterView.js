@@ -82,15 +82,17 @@ class FilterViews extends View {
   addHandlerFilterColor(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const colors = document.querySelectorAll('.btn__color');
-      const clicked = e.target.closest('.btn__color');
+      const clicked = e.target;
 
-      if (!clicked) return;
+      if (!clicked.classList.contains('btn__color')) return;
 
       for (const color of colors) {
-        color.classList.remove('filter__color--active');
+        color.classList.remove('filter__color--active', 'filter__color-all--active');
       }
 
-      clicked.classList.add('filter__color--active');
+      clicked.innerText !== 'All'
+        ? clicked.classList.add('filter__color--active')
+        : clicked.classList.add('filter__color-all--active');
 
       const { color } = clicked.dataset;
 
@@ -198,12 +200,10 @@ class FilterViews extends View {
     return /*html*/ `
       ${
         color === 'all'
-          ? `<button class="btn__color h-4 w-4 ${
-              color === 'all' ? 'filter__color--active' : ''
-            } rounded-full transition duration-300" data-color="all">
-              <svg class="h-full w-full">
-                <use xlink:href="${icons}#icon-all-color"></use>
-              </svg>
+          ? `<button class="btn__color ${
+              color === 'all' ? 'filter__color-all--active' : ''
+            } transition duration-300" data-color="all">
+              All
             </button>`
           : `<button class="btn__color h-4 w-4 rounded-full transition duration-300" style="background-color: ${color}" data-color="${color}"></button>`
       }
