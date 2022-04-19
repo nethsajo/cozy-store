@@ -24,7 +24,7 @@ class ResultView extends View {
               class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-500"
               >${this._data.brand}</span
             >
-            <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600">
+            <h4 class="mb-2 border-b pb-3 text-base font-bold uppercase text-neutral-600 xs:text-sm">
               ${this._data.name}
             </h4>
             <div class="mt-4 flex items-center justify-between">
