@@ -61,7 +61,7 @@
   }
 
   .breadcrumb {
-    @apply text-base sm:text-xl lg:text-2xl xs:text-xs;
+    @apply text-sm sm:text-xl lg:text-2xl xs:text-xs;
   }
 
   .icon {

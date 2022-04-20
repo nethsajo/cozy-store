@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.4.0",
+    "@parcel/transformer-webmanifest": "^2.4.0",
     "parcel": "^2.4.0",
     "postcss": "^8.4.12",
     "prettier-plugin-tailwindcss": "^0.1.8",
