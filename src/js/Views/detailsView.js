@@ -102,7 +102,7 @@ class DetailView extends View {
         <div class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
           <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
             <nav class="flex" aria-label="Breadcrumb">
-              <ul class="flex flex-wrap items-center slash:mx-2 slash:content-['/']">
+              <ul class="flex flex-wrap items-center slash:mx-1 sm:slash:mx-2 slash:content-['/']">
                 <li class="breadcrumb flex items-center">
                   <a href="./index.html" class="font-medium text-zinc-600">Home</a>
                 </li>

@@ -28,6 +28,7 @@ const controlAddtoCart = function (id, color, quantity, product) {
   model.addToCart(id, color, quantity, product);
   MenuView.toggleCart('open');
   CartView.render(model.state.cart);
+  CartView.addHandlerTotal(model.state.cart);
 };
 
 const init = () => {
