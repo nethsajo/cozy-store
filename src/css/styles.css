@@ -41,7 +41,7 @@
   }
 
   .link {
-    @apply inline-block font-medium text-zinc-600 transition duration-300 hover:text-amber-500;
+    @apply flex items-center space-x-2 text-xl text-neutral-700 transition duration-300 hover:text-amber-500;
   }
 
   .overlay {

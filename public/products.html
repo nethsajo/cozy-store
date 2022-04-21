@@ -16,90 +16,7 @@
     <title>Cozy &mdash; Products</title>
   </head>
   <body>
-    <header
-      class="mx-auto h-20 max-w-full px-8 sm:max-w-2xl lg:h-24 lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4"
-    >
-      <!-- NAVIGATION -->
-      <nav class="nav flex h-full items-center justify-around">
-        <div class="flex-1 lg:hidden">
-          <button class="btn__icon btn__menu">
-            <svg class="h-6 w-6 fill-current">
-              <use xlink:href="../src/icons/icons.svg#icon-menu"></use>
-            </svg>
-          </button>
-          <div class="menu__container overlay -translate-x-full">
-            <div class="sidepanel left-0">
-              <button class="btn__menu-close absolute right-4 top-6 flex h-8 w-8 items-center justify-center">
-                <svg class="h-full w-full fill-current">
-                  <use xlink:href="../src/icons/icons.svg#icon-close"></use>
-                </svg>
-              </button>
-              <ul class="flex h-full flex-col space-y-8 pt-24">
-                <li class="flex items-center space-x-2 px-8">
-                  <svg class="h-6 w-6 fill-current">
-                    <use xlink:href="../src/icons/icons.svg#icon-home"></use>
-                  </svg>
-                  <a href="./index.html" class="link text-xl">Home</a>
-                </li>
-                <li class="flex items-center space-x-2 px-8">
-                  <svg class="h-6 w-6 fill-current">
-                    <use xlink:href="../src/icons/icons.svg#icon-shopping-bag"></use>
-                  </svg>
-                  <a href="./products.html" class="link text-xl">Products</a>
-                </li>
-                <li class="flex items-center space-x-2 px-8">
-                  <svg class="h-6 w-6 fill-current">
-                    <use xlink:href="../src/icons/icons.svg#icon-info"></use>
-                  </svg>
-                  <a href="./about.html" class="link text-xl">About</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <ul class="hidden flex-1 space-x-10 lg:flex">
-          <li><a href="./index.html" class="link">Home</a></li>
-          <li><a href="./products.html" class="link">Products</a></li>
-          <li><a href="./about.html" class="link">About</a></li>
-        </ul>
-        <!-- LOGO -->
-        <div class="flex-none px-6">
-          <a href="./index.html">
-            <img src="../src/images/cozy-logo.webp" alt="Cozy Logo" class="h-5 sm:h-6" />
-          </a>
-        </div>
-        <!-- CART -->
-        <div class="flex-1">
-          <button class="btn__icon btn__cart relative ml-auto justify-end">
-            <svg class="h-6 w-6 fill-current">
-              <use xlink:href="../src/icons/icons.svg#icon-cart"></use>
-            </svg>
-            <span class="badge cart__count -top-2 -right-2">0</span>
-          </button>
-          <div class="cart__container overlay translate-x-full">
-            <aside class="sidepanel right-0 h-screen w-full py-9 sm:w-2/4 lg:w-[30%]">
-              <div class="flex h-full flex-col">
-                <button class="btn__cart-close ml-6 mb-8 flex h-8 w-8 items-center justify-center">
-                  <svg class="h-full w-full fill-current">
-                    <use xlink:href="../src/icons/icons.svg#icon-close"></use>
-                  </svg>
-                </button>
-                <h3 class="mb-8 text-center text-xl font-semibold tracking-wide text-neutral-600">Cart Summary</h3>
-                <div class="flex h-full flex-col justify-between">
-                  <ul class="cart__items ml-0.5 h-[50vh] overflow-auto rtl">
-                    <!-- CART CONTENT WILL GO HERE... -->
-                  </ul>
-                  <div class="mt-12 flex items-center justify-end px-6 text-lg font-medium text-neutral-600">
-                    <h2 class="mr-2">Total:</h2>
-                    <span class="cart__total font-bold">0</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <include src="./public/layout/header.html"></include>
     <main class="main min-h-[calc(100vh-5rem)] sm:min-h-[calc(100vh-8rem)]">
       <section class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
         <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
@@ -162,14 +79,6 @@
         </div>
       </section>
     </main>
-    <footer class="flex min-h-[5rem] w-full items-center bg-amber-50 sm:min-h-[8rem]">
-      <div class="mx-auto w-full max-w-lg px-8 sm:max-w-2xl lg:max-w-7xl lg:px-12 2xl:max-w-screen-2xl xs:px-4">
-        <p class="text-center text-sm font-medium text-neutral-700 sm:text-lg">
-          <span class="footer__year">2022</span>
-          <span class="font-bold text-amber-500">Cozy.</span>
-          All Rights Reserved
-        </p>
-      </div>
-    </footer>
+    <include src="./public/layout/footer.html"></include>
   </body>
 </html>
