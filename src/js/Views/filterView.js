@@ -125,7 +125,7 @@ class FilterViews extends View {
       <aside class="space-y-6">
         <div class="accordion">
           <div class="accordion__heading accordion__heading--active">
-            <h4 class="font-bold tracking-wide">Category</h4>
+            <h4 class="font-bold text-sm sm:text-base tracking-wide">Category</h4>
             <svg class="ml-auto h-6 w-6 fill-current">
               <use xlink:href="${icons}#icon-arrow-down"></use>
             </svg>
@@ -136,7 +136,7 @@ class FilterViews extends View {
         </div>
         <div class="accordion">
           <div class="accordion__heading">
-            <h4 class="font-bold tracking-wide">Brands</h4>
+            <h4 class="font-bold text-sm sm:text-base tracking-wide">Brands</h4>
             <svg class="ml-auto h-6 w-6 fill-current">
               <use xlink:href="${icons}#icon-arrow-down"></use>
             </svg>
@@ -146,15 +146,15 @@ class FilterViews extends View {
           </div>
         </div>
         <div class="flex flex-wrap items-center justify-between gap-4">
-          <h4 class="font-bold tracking-wide text-neutral-600">Colors</h4>
+          <h4 class="font-bold text-sm sm:text-base tracking-wide text-neutral-600">Colors</h4>
           <div class="flex items-center space-x-3">
             ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
           </div>
         </div>
         <div class="space-y-2">
           <div class="flex items-center justify-between">
-            <h4 class="font-bold tracking-wide text-neutral-600">Price</h4>
-            <p class="price__text font-medium text-gray-500">${formatPrice(this._data.price)}</p>
+            <h4 class="text-sm sm:text-base font-bold tracking-wide text-neutral-600">Price</h4>
+            <p class="price__text text-sm sm:text-base font-medium text-gray-500">${formatPrice(this._data.price)}</p>
           </div>
           <form class="price__form">
             <input

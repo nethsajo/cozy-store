@@ -42,7 +42,7 @@
                 type="text"
                 name="search"
                 placeholder="Search..."
-                class="search__input w-full appearance-none rounded-md border-2 border-transparent bg-neutral-50 px-3 py-2 leading-normal tracking-wider text-neutral-700 placeholder-neutral-700 focus:border-amber-500 focus:bg-white focus:outline-none sm:w-auto"
+                class="search__input w-full appearance-none rounded-md border-2 border-transparent bg-neutral-100 px-3 py-2 text-sm leading-normal tracking-wider text-neutral-700 placeholder-neutral-700 focus:border-amber-500 focus:bg-white focus:outline-none sm:w-auto sm:text-base"
               />
             </form>
             <div class="filters">
@@ -51,18 +51,18 @@
           </div>
           <div>
             <div class="mb-12 grid grid-cols-1 items-center gap-6 lg:grid-cols-[auto_1fr_auto]">
-              <div class="text-lg uppercase tracking-wider text-gray-600">
+              <div class="text-base uppercase tracking-wider text-gray-600 sm:text-lg">
                 <span class="products__count font-semibold text-amber-500">0</span>
                 <span class="products__count--text font-medium">product found</span>
               </div>
               <hr />
               <div class="flex items-center">
-                <p class="mr-2 font-medium capitalize text-gray-600">Sort by:</p>
+                <p class="mr-2 text-sm font-medium capitalize text-gray-600 sm:text-base">Sort by:</p>
                 <form class="sort__form">
                   <select
                     name="sort"
                     id="sort"
-                    class="sort rounded-md border border-neutral-100 px-4 py-2 text-sm capitalize text-neutral-700 outline-none focus:border-amber-300"
+                    class="sort rounded-md border border-neutral-100 bg-transparent px-4 py-2 text-sm capitalize text-neutral-700 outline-none focus:border-amber-300"
                   >
                     <option value="price-low-high">price: (low &mdash; high)</option>
                     <option value="price-high-low">price: (high &mdash; low)</option>
