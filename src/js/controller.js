@@ -1,20 +1,8 @@
 import * as model from './model';
 import CartView from './Views/cartView';
-import FeaturedView from './Views/featuredView';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
-export const controlFeaturedProducts = async function () {
-  try {
-    FeaturedView.renderSpinner();
-    await model.loadFeaturedProduct();
-    FeaturedView.render(model.state.featured);
-  } catch (error) {
-    console.error(`${error} 💥💥💥`);
-    throw error;
-  }
-};
 
 export const controlCart = function () {
   CartView.render(model.state.cart);

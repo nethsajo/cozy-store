@@ -65,7 +65,7 @@
   }
 
   .icon {
-    @apply flex items-center text-amber-400 transition duration-300 hover:text-amber-500;
+    @apply flex items-center justify-center text-amber-400 transition duration-300 hover:text-amber-500;
   }
 
   .slider-thumb::-webkit-slider-thumb {

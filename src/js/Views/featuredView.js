@@ -7,7 +7,7 @@ class FeaturedView extends View {
 
   _generateMarkup() {
     return /*html*/ `
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-12">
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 xl:gap-12">
         ${this._data.map(product => resultView.render(product, false)).join('')}
       </div>    
     `;

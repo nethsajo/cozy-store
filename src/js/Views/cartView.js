@@ -65,9 +65,15 @@ class CartView extends View {
   _generateCartItem(item) {
     const { id, name, price, image, color, quantity } = item;
 
+    const sku = id.split('#')[0];
+
+    const url = new URLSearchParams(window.location.search).get('id');
+
     return /*html*/ `
       <li class="cart__item border-b border-neutral-100 last:border-0">
-        <a href="/details.html?id=${id.split('#')[0]}" class="flex py-4 px-6 hover:bg-neutral-50 xs:flex-col ltr">
+        <a href="/details.html?id=${sku}" class="flex py-4 px-6 hover:bg-neutral-50 ${
+      sku === url ? 'bg-neutral-50' : ''
+    } xs:flex-col ltr">
           <figure class="h-16 flex-[0_0_64px] xs:h-32 xs:flex-none rounded-sm overflow-hidden">
             <img src="${image}" alt="${name}" class="w-full h-full object-cover object-center">
           </figure>

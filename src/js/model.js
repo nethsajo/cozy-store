@@ -1,5 +1,5 @@
 import { API_URL, SINGLE_API_URL } from './config';
-import { getJSON, formatPrice, getUniqueValues, getMaxPrice } from './helpers';
+import { getJSON, getUniqueValues, getMaxPrice } from './helpers';
 
 export const state = {
   product: {},
@@ -29,7 +29,7 @@ export const loadFeaturedProduct = async function () {
     state.featured = data
       .filter(product => product.featured === true)
       .sort(() => Math.random() - 0.5)
-      .slice(0, 3)
+      .slice(0, 4)
       .map(product => {
         return {
           id: product.id,
@@ -37,6 +37,7 @@ export const loadFeaturedProduct = async function () {
           image: product.image,
           brand: product.company,
           price: product.price,
+          shipping: product.shipping,
         };
       });
     console.log(state.featured);
@@ -84,6 +85,7 @@ export const loadAllProducts = async function () {
           category: product.category,
           colors: product.colors,
           price: product.price,
+          shipping: product.shipping,
         };
       });
 
@@ -95,7 +97,6 @@ export const loadAllProducts = async function () {
     };
 
     state.filterValues.price = getMaxPrice(data);
-    console.log(state);
   } catch (error) {
     console.error(error);
     throw error;

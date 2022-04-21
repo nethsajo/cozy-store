@@ -31,13 +31,6 @@ class ResultView extends View {
               <div class="flex items-baseline space-x-1 text-amber-500">
                 <p class="text-lg font-medium">${formatPrice(this._data.price)}</p>
               </div>
-              <div class="flex items-center space-x-3">
-                <button class="icon h-6 w-6" aria-label="Add to Wishlist">
-                  <svg class="h-5 w-5 fill-current">
-                    <use xlink:href="${icons}#icon-wishlist"></use>
-                  </svg>
-                </button>
-              </div>
             </div>
           </div>
         </div>
