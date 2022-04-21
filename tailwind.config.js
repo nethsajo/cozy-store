@@ -12,7 +12,7 @@ module.exports = {
       },
       boxShadow: {
         customXs: '0 2px 16px rgba(32,32,32,0.03)',
-        customSm: '0 4px 18px rgba(32,32,32,0.05)',
+        customSm: '0 8px 16px rgba(32,32,32,0.08)',
       },
       keyframes: {
         ripple: {

@@ -79,7 +79,7 @@ export default class View {
         <svg class="h-10 w-10 fill-red-600">
           <use xlink:href="${icons}#icon-warning"></use>
         </svg>
-        <span class="text-xl text-center text-neutral-600 font-medium sm:text-xl xs:text-lg">${message}</span>
+        <span class="text-lg text-center text-neutral-600 font-medium sm:text-xl xs:text-base">${message}</span>
       </div>
     `;
 

@@ -131,10 +131,10 @@ class DetailView extends View {
               </div>
             </div>
             <div class="flex flex-col">
-              <h2 class="mb-6 text-3xl font-bold capitalize tracking-wide text-gray-800 sm:text-5xl xs:text-xl xs:mb-3">
+              <h2 class="mb-4 text-2xl font-bold capitalize tracking-wide text-gray-800 sm:mb-6 sm:text-5xl xs:text-xl xs:mb-3">
                 ${this._data.name}
               </h2>
-              <div class="flex flex-wrap items-center gap-2 mb-6">
+              <div class="flex flex-wrap items-center gap-2 mb-4 sm:mb-6">
                 <div class="flex items-center space-x-0.5">
                   ${this._generateProductRatings(this._data.ratings)}
                 </div>

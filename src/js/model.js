@@ -28,6 +28,7 @@ export const loadFeaturedProduct = async function () {
     const data = await getJSON(`${API_URL}`);
     state.featured = data
       .filter(product => product.featured === true)
+      .sort(() => Math.random() - 0.5)
       .slice(0, 3)
       .map(product => {
         return {
@@ -38,6 +39,7 @@ export const loadFeaturedProduct = async function () {
           price: product.price,
         };
       });
+    console.log(state.featured);
   } catch (error) {
     console.error(error);
     throw error;
