@@ -40,7 +40,6 @@ export const loadFeaturedProduct = async function () {
           shipping: product.shipping,
         };
       });
-    console.log(state.featured);
   } catch (error) {
     console.error(error);
     throw error;
@@ -64,7 +63,6 @@ export const loadSingleProduct = async function (id) {
       stocks: data.stock,
       shipping: data.shipping,
     };
-    console.log(state.product);
   } catch (error) {
     console.error(error);
     throw error;
@@ -268,8 +266,6 @@ export const removeCart = function (id) {
   const index = state.cart.findIndex(item => item.id === id);
 
   state.cart.splice(index, 1);
-
-  console.log(state.cart);
 
   storeCart();
 };
