@@ -1,9 +1,7 @@
 import * as model from '../model';
-import DetailView from '../Views/detailsView';
 import CartView from '../Views/cartView';
+import DetailView from '../Views/detailsView';
 import MenuView from '../Views/menuView';
-
-import { controlCart, controlProductQuantity, controlProductRemove } from '../controller';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -17,6 +15,7 @@ const controlProductDetails = async function () {
 
     DetailView.renderSpinner();
     await model.loadSingleProduct(id);
+    console.log(model.state.product);
     DetailView.render(model.state.product);
   } catch (error) {
     DetailView.renderError();
@@ -24,7 +23,7 @@ const controlProductDetails = async function () {
   }
 };
 
-const controlAddtoCart = function (id, color, quantity, product) {
+const controlAddToCart = function (id, color, quantity, product) {
   model.addToCart(id, color, quantity, product);
   MenuView.toggleCart('open');
   CartView.render(model.state.cart);
@@ -33,7 +32,7 @@ const controlAddtoCart = function (id, color, quantity, product) {
 
 const init = () => {
   DetailView.addHandlerRender(controlProductDetails);
-  DetailView.addHandlerAddtoCart(controlAddtoCart);
+  DetailView.addHandlerAddToCart(controlAddToCart);
 };
 
 init();

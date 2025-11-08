@@ -1,6 +1,5 @@
-import View from './View';
-import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
+import View from './View';
 
 class ResultView extends View {
   _parentElement = '';

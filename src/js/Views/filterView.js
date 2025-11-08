@@ -1,6 +1,6 @@
-import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
+import View from './View';
 
 class FilterViews extends View {
   _parentElement = document.querySelector('.filters');
@@ -147,7 +147,7 @@ class FilterViews extends View {
         </div>
         <div class="flex flex-wrap items-center justify-between gap-4">
           <h4 class="font-bold text-sm sm:text-base tracking-wide text-neutral-600">Colors</h4>
-          <div class="flex items-center space-x-3">
+          <div class="flex items-center gap-3 flex-wrap">
             ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
           </div>
         </div>

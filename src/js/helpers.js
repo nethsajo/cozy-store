@@ -1,4 +1,4 @@
-import { TIMEOUT, CURRENCY, LOCALE } from './config';
+import { CURRENCY, LOCALE, TIMEOUT } from './config';
 
 const timeout = function (seconds) {
   return new Promise(function (_, reject) {
@@ -30,7 +30,7 @@ export const formatPrice = function (price) {
 };
 
 export const getUniqueValues = function (data, type) {
-  let unique = data.map(product => product[type]);
+  let unique = data.data.map(({ attributes }) => attributes[type]);
 
   if (type === 'colors') {
     unique = unique.flat();
@@ -40,7 +40,7 @@ export const getUniqueValues = function (data, type) {
 };
 
 export const getMaxPrice = function (data) {
-  let maxPrice = data.map(product => product.price);
+  let maxPrice = data.data.map(({ attributes }) => attributes.price);
   maxPrice = Math.max(...maxPrice);
   maxPrice = Math.ceil(maxPrice);
 

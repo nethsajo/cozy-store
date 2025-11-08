@@ -1,5 +1,5 @@
-import { API_URL, SINGLE_API_URL } from './config';
-import { getJSON, getUniqueValues, getMaxPrice } from './helpers';
+import { API_URL } from './config';
+import { getJSON, getMaxPrice, getUniqueValues } from './helpers';
 
 export const state = {
   product: {},
@@ -25,15 +25,14 @@ export const state = {
 
 export const loadFeaturedProduct = async function () {
   try {
-    const data = await getJSON(`${API_URL}`);
-    state.featured = data
-      .filter(product => product.featured === true)
+    const data = await getJSON(`${API_URL}?featured=true`);
+    state.featured = data.data
       .sort(() => Math.random() - 0.5)
       .slice(0, 4)
-      .map(product => {
+      .map(({ id, attributes: product }) => {
         return {
-          id: product.id,
-          name: product.name,
+          id,
+          name: product.title,
           image: product.image,
           brand: product.company,
           price: product.price,
@@ -48,20 +47,20 @@ export const loadFeaturedProduct = async function () {
 
 export const loadSingleProduct = async function (id) {
   try {
-    const data = await getJSON(`${SINGLE_API_URL}${id}`);
+    const data = await getJSON(`${API_URL}/${id}`);
+    const _id = data.data.id;
+    const product = data.data.attributes;
+    console.log(product);
     state.product = {
-      id: data.id,
-      name: data.name,
-      brand: data.company,
-      category: data.category,
-      images: data.images,
-      price: data.price,
-      description: data.description,
-      colors: data.colors,
-      ratings: data.stars,
-      reviews: data.reviews,
-      stocks: data.stock,
-      shipping: data.shipping,
+      id: _id,
+      name: product.title,
+      brand: product.company,
+      image: product.image,
+      category: product.category,
+      price: product.price,
+      description: product.description,
+      colors: product.colors,
+      shipping: product.shipping,
     };
   } catch (error) {
     console.error(error);
@@ -72,12 +71,12 @@ export const loadSingleProduct = async function (id) {
 export const loadAllProducts = async function () {
   try {
     const data = await getJSON(`${API_URL}`);
-    state.products = data
-      .sort((x, y) => x.price - y.price)
-      .map(product => {
+    state.products = data.data
+      .sort((x, y) => x.attributes.price - y.attributes.price)
+      .map(({ id, attributes: product }) => {
         return {
-          id: product.id,
-          name: product.name,
+          id,
+          name: product.title,
           image: product.image,
           brand: product.company,
           category: product.category,
@@ -232,7 +231,7 @@ export const addToCart = function (id, color, quantity, product) {
       id: id + color,
       name: product.name,
       price: product.price,
-      image: product.images[0].url,
+      image: product.image,
       color,
       quantity: +quantity,
       max: product.stocks,
@@ -263,6 +262,7 @@ export const updateQuantity = function (quantity, id) {
 };
 
 export const removeCart = function (id) {
+  console.log(id);
   const index = state.cart.findIndex(item => item.id === id);
 
   state.cart.splice(index, 1);

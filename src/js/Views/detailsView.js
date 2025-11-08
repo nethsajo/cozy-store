@@ -1,6 +1,6 @@
-import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
+import View from './View';
 
 class DetailView extends View {
   _parentElement = document.querySelector('.product__details');
@@ -11,14 +11,14 @@ class DetailView extends View {
 
     this._addHandlerProductGallery();
     this._addHandlerProductColor();
-    this._addHandlerProductQuanity();
+    this._addHandlerProductQuantity();
   }
 
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }
 
-  addHandlerAddtoCart(handler) {
+  addHandlerAddToCart(handler) {
     this._parentElement.addEventListener('click', this._handlerAddToCart.bind(this, handler));
   }
 
@@ -87,7 +87,7 @@ class DetailView extends View {
     decrease && currentValue > 1 && (quantity.textContent = currentValue - 1);
   }
 
-  _addHandlerProductQuanity() {
+  _addHandlerProductQuantity() {
     this._parentElement.addEventListener('click', this._handlerQuantity.bind(this));
   }
 
@@ -121,14 +121,11 @@ class DetailView extends View {
             <div class="flex flex-col items-start">
               <figure class="relative mb-6 h-64 w-full sm:h-[31rem] xs:h-48">
                 <img
-                  src="${this._data.images[0].url}"
+                  src="${this._data.image}"
                   alt="Chair"
                   class="gallery__image absolute inset-0 h-full w-full rounded-lg object-cover object-center"
                 />
               </figure>
-              <div class="gallery flex flex-nowrap space-x-4 overflow-x-auto pb-2">
-                ${this._data.images.map(image => this._generateProductGallery(image)).join('')}
-              </div>
             </div>
             <div class="flex flex-col">
               <h2 class="mb-4 text-2xl font-bold capitalize tracking-wide text-gray-800 sm:mb-6 sm:text-5xl xs:text-xl xs:mb-3">
@@ -139,11 +136,11 @@ class DetailView extends View {
                   ${this._generateProductRatings(this._data.ratings)}
                 </div>
                 <span class="text-neutral-400 font-medium xs:text-xs">
-                  ${this._data.reviews < 1 ? `(No customer review)` : `(${this._data.reviews} customer reviews)`}
+                  ${this._data?.reviews ? `(No customer review)` : `(${this._data?.reviews ?? 'No'} customer reviews)`}
                 </span>
               </div>
               <span class="mb-6 inline-block text-xl font-medium text-amber-500 sm:text-3xl">${formatPrice(
-                this._data.price
+                this._data.price,
               )}</span>
               <p class="product__info mb-10 leading-7 text-neutral-600 xs:text-justify">
                 ${this._data.description}
@@ -157,26 +154,12 @@ class DetailView extends View {
                   <span class="product__info font-medium text-gray-800">Brand:</span>
                   <span class="product__info capitalize text-neutral-600">${this._data.brand}</span>
                 </div>
-                <div class="product__cols">
-                  <span class="product__info font-medium text-gray-800">Available:</span>
-                  <span class="product__info text-neutral-600">${
-                    this._data.stocks > 0 && this._data.stocks < 10
-                      ? `Only ${this._data.stocks} items left`
-                      : this._data.stocks >= 10
-                      ? 'In Stocks'
-                      : 'Out of Stock'
-                  }</span>
-                </div>
                 <div class="product__cols mb-8 items-center">
-                  ${
-                    this._data.stocks > 0
-                      ? `
-                      <span class="product__info font-medium text-gray-800">Colors:</span>
+                  <span class="product__info font-medium text-gray-800">Colors:</span>
                     <div class="flex items-center space-x-4">
                       ${this._data.colors.map(color => this._generateProductColors(color)).join('')}
-                    </div>`
-                      : ''
-                  }
+                    </div>
+                  </span>
                 </div>
               </div>
               <div class="product__controls ${
@@ -210,20 +193,20 @@ class DetailView extends View {
     `;
   }
 
-  _generateProductGallery(image) {
-    const { id, url, filename } = image;
+  // _generateProductGallery(image) {
+  //   const { id, url, filename } = image;
 
-    return /*html*/ `
-      <img
-        src="${url}"
-        alt="${filename}"
-        class="gallery__images ${
-          this._data.images[0].id === id ? 'gallery__img--active' : ''
-        } block h-14 cursor-pointer rounded-sm object-cover object-center sm:h-28 lg:h-32 xl:h-20"
-        data-id="${id}"
-      />
-    `;
-  }
+  //   return /*html*/ `
+  //     <img
+  //       src="${url}"
+  //       alt="${filename}"
+  //       class="gallery__images ${
+  //         this._data.images[0].id === id ? 'gallery__img--active' : ''
+  //       } block h-14 cursor-pointer rounded-sm object-cover object-center sm:h-28 lg:h-32 xl:h-20"
+  //       data-id="${id}"
+  //     />
+  //   `;
+  // }
 
   _generateProductColors(color) {
     return /*html*/ `

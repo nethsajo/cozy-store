@@ -40,7 +40,7 @@ module.exports = {
   plugins: [
     require('tailwindcss-animation-delay'),
     plugin(function ({ addVariant, addUtilities }) {
-      addVariant('slash', '.breadcrumb:not(:first-child):before');
+      addVariant('slash', '&.breadcrumb:not(:first-child):before');
       addUtilities({
         '.rtl': {
           direction: 'rtl',

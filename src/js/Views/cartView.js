@@ -1,6 +1,6 @@
-import View from './View';
 import icons from 'url:../../icons/icons.svg';
 import { formatPrice } from '../helpers';
+import View from './View';
 
 class CartView extends View {
   _parentElement = document.querySelector('.cart__items');
@@ -71,9 +71,7 @@ class CartView extends View {
 
     return /*html*/ `
       <li class="cart__item border-b border-neutral-100 last:border-0">
-        <a href="/details.html?id=${sku}" class="flex py-4 px-6 hover:bg-neutral-50 ${
-      sku === url ? 'bg-neutral-50' : ''
-    } xs:flex-col ltr">
+        <div class="flex py-4 px-6 hover:bg-neutral-50 ${sku === url ? 'bg-neutral-50' : ''} xs:flex-col ltr">
           <figure class="h-16 flex-[0_0_64px] xs:h-32 xs:flex-none rounded-sm overflow-hidden">
             <img src="${image}" alt="${name}" class="w-full h-full object-cover object-center">
           </figure>
@@ -90,7 +88,7 @@ class CartView extends View {
                   <span class="h-3 w-3 rounded-full" style="background-color: ${color}"></span>
                 </div>
               </div>
-              <span class="btn__remove-product text-xs uppercase font-medium text-red-500 transition duration-300 hover:text-red-600" data-id="${id}">
+              <span class="btn__remove-product text-xs uppercase font-medium text-red-500 transition duration-300 hover:text-red-600 cursor-pointer" data-id="${id}">
                 Remove
               </span>
             </div>
@@ -114,7 +112,7 @@ class CartView extends View {
               </div>
             </div>
           </div>
-        </a>
+        </div>
       </li>
     `;
   }
