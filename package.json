@@ -6,7 +6,7 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel public/*.html",
-    "build": "parcel build public/*.html --dist-dir ./build"
+    "build": "parcel build public/*.html --dist-dir ./build --no-source-maps"
   },
   "keywords": [],
   "author": "",
