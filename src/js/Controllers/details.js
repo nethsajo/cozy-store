@@ -15,7 +15,6 @@ const controlProductDetails = async function () {
 
     DetailView.renderSpinner();
     await model.loadSingleProduct(id);
-    console.log(model.state.product);
     DetailView.render(model.state.product);
   } catch (error) {
     DetailView.renderError();

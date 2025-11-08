@@ -50,7 +50,6 @@ export const loadSingleProduct = async function (id) {
     const data = await getJSON(`${API_URL}/${id}`);
     const _id = data.data.id;
     const product = data.data.attributes;
-    console.log(product);
     state.product = {
       id: _id,
       name: product.title,
@@ -262,7 +261,6 @@ export const updateQuantity = function (quantity, id) {
 };
 
 export const removeCart = function (id) {
-  console.log(id);
   const index = state.cart.findIndex(item => item.id === id);
 
   state.cart.splice(index, 1);
