@@ -55,7 +55,9 @@ class CartView extends View {
       return (accumulator += current.quantity);
     }, 0);
 
-    this._cartCount.textContent = cartItemsTotal;
+    if (this._cartCount) {
+      this._cartCount.textContent = cartItemsTotal;
+    }
   }
 
   _generateMarkup() {
